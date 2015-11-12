@@ -1,0 +1,46 @@
+<template name="home">
+  {{#contentFor "navButtonLeft"}}
+
+  {{/contentFor}}
+
+  {{#contentFor "navTitle"}}
+    <h1 class="title">Home</h1>
+  {{/contentFor}}
+
+  {{#contentFor "navButtonRight"}}
+
+  {{/contentFor}}
+
+  <main class="content home">
+
+    <div class="card">
+      <ul class="table-view">
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="{{pathFor 'personal'}}" data-nav-direction="right">
+            <span class="media-object pull-left icon icon-person"></span>
+            <div class="media-body">
+              Personal
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right">
+            <span class="media-object pull-left icon icon-home"></span>
+            <div class="media-body">
+              Group
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right">
+            <span class="media-object pull-left icon icon-pages"></span>
+            <div class="media-body">
+              Organisation
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </main>
+</template>
