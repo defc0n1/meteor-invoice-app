@@ -15,7 +15,8 @@ Template.appLayout.rendered = function() {
     },
 
     removeElement: function(node) {
-      var direction = navDirection === 'left' ? 'right' : 'left';
+      //var direction = navDirection === 'left' ? 'right' : 'left';
+      var direction = 'left';
       $(node).addClass('sliding ' + direction);
       Meteor.setTimeout(function() {
         $(node).remove();

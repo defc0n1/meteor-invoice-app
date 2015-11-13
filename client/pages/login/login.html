@@ -1,0 +1,25 @@
+<template name="login">
+  {{#contentFor "navButtonLeft"}}
+
+  {{/contentFor}}
+
+  {{#contentFor "navTitle"}}
+  <h1 class="title">Login</h1>
+  {{/contentFor}}
+
+  {{#contentFor "navButtonRight"}}
+
+  {{/contentFor}}
+
+  <main class="login">
+
+    <div class="form-card">
+      <form id="LoginForm">
+        <input id="LoginEmail" type="text" placeholder="Email">
+        <input id="LoginPassword" type="password" placeholder="Password">
+        <button class="btn btn-positive btn-block">Login</button>
+      </form>
+    </div>
+
+  </main>
+</template>

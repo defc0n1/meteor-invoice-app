@@ -1,0 +1,19 @@
+//
+// Form Cards
+// --------------------------------------------------
+
+.form-card {
+  margin: $bar-side-spacing 0;
+  overflow: hidden;
+  border: $border-default;
+  background-color: $card-bg;
+  padding: 10px 15px;
+  border-radius: $border-radius;
+
+  width: 90%;
+
+  @media (min-width: 600px) {
+    width: 600px;
+    margin: 10px auto;
+  }
+}
