@@ -1,23 +1,46 @@
+var ERRORS_KEY = 'logininErrors';
+
+Template.login.onCreated(function() {
+    Session.set(ERRORS_KEY, {});
+});
+
+Template.login.helpers({
+    errorMessages: function() {
+        return _.values(Session.get(ERRORS_KEY));
+    },
+    errorClass: function(key) {
+        return Session.get(ERRORS_KEY)[key] && 'error';
+    }
+});
+
 Template.login.events({
+    'submit': function(event, template) {
+        event.preventDefault();
 
-    'submit #LoginForm' : function(e, t){
-        e.preventDefault();
-        // retrieve the input field values
-        var email = t.find('#LoginEmail').value
-            , password = t.find('#LoginPassword').value;
+        var email = template.$('[name=email]').val();
+        var password = template.$('[name=password]').val();
 
-        // Trim and validate your fields here....
+        var errors = {};
 
-        // If validation passes, supply the appropriate fields to the
-        // Meteor.loginWithPassword() function.
-        Meteor.loginWithPassword(email, password, function(error){
-            if (error){
-                console.log(error.reason); // Output error when the login fails
-            } else {
-                Router.go("home"); // Redirect user when login succeeds
+        if (! email) {
+            errors.email = 'Email is required';
+        }
+
+        if (! password) {
+            errors.password = 'Password is required';
+        }
+
+        Session.set(ERRORS_KEY, errors);
+        if (_.keys(errors).length) {
+            return;
+        }
+
+        Meteor.loginWithPassword(email, password, function(error) {
+            if (error) {
+                return Session.set(ERRORS_KEY, {'none': error.reason});
             }
-        });
 
-        return false;
+            Router.go('home');
+        });
     }
 });

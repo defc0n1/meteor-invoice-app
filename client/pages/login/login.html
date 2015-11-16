@@ -15,8 +15,24 @@
 
     <div class="form-card">
       <form id="LoginForm">
-        <input id="LoginEmail" type="text" placeholder="Email">
-        <input id="LoginPassword" type="password" placeholder="Password">
+        {{#if errorMessages}}
+          <ul class="list-errors">
+            {{#each errorMessages}}
+              <li class="list-item">{{this}}</li>
+            {{/each}}
+          </ul>
+        {{/if}}
+
+        <div class="{{errorClass 'email'}}">
+          <input type="email" name="email" placeholder="Your Email" />
+          <span class="icon-email" title="Your Email"></span>
+        </div>
+
+        <div class="{{errorClass 'password'}}">
+          <input type="password" name="password" placeholder="Password" />
+          <span class="icon-lock" title="Password"></span>
+        </div>
+
         <button class="btn btn-positive btn-block">Login</button>
       </form>
     </div>
