@@ -1,9 +1,9 @@
-<template name="personal">
+<template name="companyShow">
   {{#contentFor "navButtonLeft"}}
   {{/contentFor}}
 
   {{#contentFor "navTitle"}}
-    <h1 class="title">Items</h1>
+    <h1 class="title">Company Details</h1>
   {{/contentFor}}
 
   {{#contentFor "navButtonRight"}}
@@ -15,10 +15,10 @@
   <main class="content home">
 
     <ul class="table-view">
-      {{#each items}}
+      {{#each companies}}
       <li class="table-view-cell">
-        <a href="{{pathFor 'personal.show' }}" data-nav-direction="right">
-          <p>{{truncate body 60}}</p>          
+        <a href="{{pathFor 'company.show' }}" data-nav-direction="right">
+          <p>{{ companyName }}</p>
         </a>
       </li>
       {{/each}}

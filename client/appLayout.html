@@ -7,25 +7,6 @@
       {{> yield "navTitle"}}
     </header>
 
-    <nav class="bar bar-tab">
-      <a class="tab-item {{#if activeTab='personal'}}active{{/if}}" href="">
-        <span class="icon icon-person"></span>
-        <span class="tab-label">Personal</span>
-      </a>
-      <a class="tab-item" href="#">
-        <span class="icon icon-pages"></span>
-        <span class="tab-label">Group</span>
-      </a>
-      <a class="tab-item" href="#">
-        <span class="icon icon-star-filled"></span>
-        <span class="tab-label">Organisation</span>
-      </a>
-      <a class="tab-item" href="#">
-        <span class="icon icon-gear"></span>
-        <span class="tab-label">Logout</span>
-      </a>
-    </nav>
-
     {{> yield}}
   </div>
 
