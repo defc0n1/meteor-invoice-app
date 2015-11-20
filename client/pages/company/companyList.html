@@ -1,11 +1,9 @@
-<template name="companyShow">
+<template name="companyList">
   {{#contentFor "navButtonLeft"}}
-    <a href="{{pathFor 'company.list'}}" data-nav-direction="left" class="btn btn-link btn-nav pull-left">
-      <span class="icon icon-left-nav"></span> Companies</a>
   {{/contentFor}}
 
   {{#contentFor "navTitle"}}
-    <h1 class="title">{{ item.name }}</h1>
+    <h1 class="title">Your Companies</h1>
   {{/contentFor}}
 
   {{#contentFor "navButtonRight"}}
@@ -15,20 +13,23 @@
   {{/contentFor}}
 
   <main class="content">
-    <div class="card">
-      <ul class="table-view">
-        <li class="table-view-cell">
-          <p>Name: <strong>{{ item.name }}</strong></p>
-          <p>Tax Number: <strong>{{taxNumber}}</strong></p>
-        </li>
-        <li class="table-view-cell">
-          <strong>{{message.subject}}</strong>
-        </li>
-        <li class="table-view-cell">
-          <p>{{message.body}}</p>
-        </li>
-      </ul>
-    </div>
+
+    <ul class="table-view">
+      {{#each items}}
+      <li class="table-view-cell">
+        <a href="{{pathFor 'company.show' }}" data-nav-direction="right" class="navigate-right">
+          <div class="media-body">
+            {{name}}
+            <p>
+              <strong>{{taxNumber}}</strong>
+
+            </p>
+          </div>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+
   </main>
 
   {{#contentFor "modals"}}
@@ -36,7 +37,7 @@
       <header class="bar bar-nav">
         <button type="button" class="btn btn-link btn-nav pull-left" data-toggle-modal="new-item-modal">Cancel</button>
         <button type="button" class="btn btn-link btn-nav pull-right" data-toggle-modal="new-item-modal">Save</button>
-        <h1 class="title">Update company details</h1>
+        <h1 class="title">New item</h1>
       </header>
 
       <main class="content">
