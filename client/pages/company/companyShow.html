@@ -9,26 +9,28 @@
   {{/contentFor}}
 
   {{#contentFor "navButtonRight"}}
-    <a class="btn btn-link btn-nav pull-right" href="#" data-toggle-modal="new-item-modal">
-      <span class="icon icon-compose"></span>
-    </a>
   {{/contentFor}}
 
   <main class="content">
-    <div class="card">
-      <ul class="table-view">
-        <li class="table-view-cell">
-          <p>Name: <strong>{{ item.name }}</strong></p>
-          <p>Tax Number: <strong>{{taxNumber}}</strong></p>
-        </li>
-        <li class="table-view-cell">
-          <strong>{{message.subject}}</strong>
-        </li>
-        <li class="table-view-cell">
-          <p>{{message.body}}</p>
-        </li>
-      </ul>
-    </div>
+      <form class="input-group">
+        <div class="input-row">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Company Name" value="{{ item.name }}">
+        </div>
+        <div class="input-row">
+          <label>Tax Number</label>
+          <input type="text" name="taxNumber" placeholder="Tax Number" value="{{ item.taxNumber }}">
+        </div>
+        <div class="input-row">
+          <label>Phone</label>
+          <input type="text" name="phones_home" placeholder="Phone" value="{{ item.phones.home }}">
+        </div>
+        <div class="input-row">
+          <label>Fax</label>
+          <input type="text" name="phones_fax" placeholder="Fax" value="{{ item.phones.fax }}">
+        </div>
+        <button class="btn btn-positive btn-block">Save</button>
+      </form>
   </main>
 
   {{#contentFor "modals"}}
