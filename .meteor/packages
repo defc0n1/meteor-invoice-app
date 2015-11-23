@@ -13,6 +13,7 @@ insecure
 iron:router@0.9.4
 anti:fake
 mrt:underscore-string-latest
-fourseven:scss
 accounts-password
 accounts-base
+nemo64:bootstrap
+less

@@ -15,7 +15,6 @@ deps@1.0.7
 ejson@1.0.6
 email@1.0.6
 fastclick@1.0.3
-fourseven:scss@3.2.0
 geojson-utils@1.0.3
 html-tools@1.0.4
 htmljs@1.0.4
@@ -29,6 +28,7 @@ iron:router@0.9.4
 jquery@1.11.3_2
 json@1.0.3
 launch-screen@1.0.2
+less@1.0.14
 livedata@1.0.13
 localstorage@1.0.3
 logging@1.0.7
@@ -39,6 +39,8 @@ minimongo@1.0.8
 mobile-status-bar@1.0.3
 mongo@1.1.0
 mrt:underscore-string-latest@2.3.3
+nemo64:bootstrap@3.3.5_2
+nemo64:bootstrap-data@3.3.5
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
