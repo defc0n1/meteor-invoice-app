@@ -1,0 +1,55 @@
+<template name="invoiceList">
+  {{#contentFor "navButtonLeft"}}
+  {{/contentFor}}
+
+  {{#contentFor "navTitle"}}
+    <h1 class="title">Invoices</h1>
+  {{/contentFor}}
+
+  {{#contentFor "navButtonRight"}}
+    <a class="btn btn-link btn-nav pull-right" href="#" data-toggle-modal="new-item-modal">
+      <span class="icon icon-compose"></span>
+    </a>
+  {{/contentFor}}
+
+  <a href="{{pathFor 'invoice.new' }}" data-nav-direction="right">New invoice</a>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Invoice No.</th>
+          <th>Customer Name</th>
+          <th>Customer Company</th>
+          <th>Customer Tax Number</th>
+          <th>Customer Address</th>
+          <th>Total before GST</th>
+          <th>GST</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each items}}
+          <tr>
+            <td>{{ invoiceNumber }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.company }}</td>
+            <td>{{ customer.taxNumber }}</td>
+            <td>{{ customer.address }}</td>
+            <td>{{ total.beforeGST }}</td>
+            <td>{{ total.GST }}</td>
+            <td>{{ total.plusGST }}</td>
+            <td>
+              <a href="{{pathFor 'invoice.show' }}" data-nav-direction="right" class="navigate-right">Update</a>
+              <a href="#" onclick="window.print()">Print</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  {{#contentFor "modals"}}
+  {{/contentFor}}
+</template>
