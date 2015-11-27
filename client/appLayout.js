@@ -1,3 +1,13 @@
+if (Meteor.isClient) {
+  Template.appLayout.helpers({
+    activeIfTemplateIs: function (template) {
+      var currentRoute = Router.current();
+      return currentRoute &&
+        template === currentRoute.lookupTemplate() ? 'active' : '';
+    }
+  });
+}
+
 Template.appLayout.rendered = function() {
   this.find('#slide-container')._uihooks = {
     insertElement: function(node, next) {
