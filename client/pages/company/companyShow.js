@@ -16,6 +16,13 @@ Template.companyShow.events({
                     fax: phones_fax
                 },
             }
+        }, function(error) {
+            if (error) {
+                return Session.set(ERRORS_KEY, {'none': error.reason});
+            }
+
+            //Flash.success('top', 'Updated', 5000);
+            Router.go('company.list');
         });
     }
 })
