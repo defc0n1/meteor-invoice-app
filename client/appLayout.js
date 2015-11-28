@@ -1,4 +1,4 @@
-if (Meteor.isClient) {
+/*if (Meteor.isClient) {
   Template.appLayout.helpers({
     activeIfTemplateIs: function (template) {
       var currentRoute = Router.current();
@@ -45,4 +45,4 @@ Template.appLayout.events({
   'click [data-nav-direction]': function(event) {
     navDirection = $(event.currentTarget).data('nav-direction');
   }
-});
+});*/

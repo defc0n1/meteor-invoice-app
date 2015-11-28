@@ -10,13 +10,19 @@ autopublish
 insecure
 
 # Packages from Atmosphere:
-iron:router@0.9.4
-anti:fake
-mrt:underscore-string-latest
-accounts-password
-accounts-base
+
+# Frontend
 nemo64:bootstrap
 less
+
+# Backend
+accounts-password
+accounts-base
 naxio:flash
 aldeed:autoform
 aldeed:collection2
+iron:router
+
+# Development
+anti:fake
+mrt:underscore-string-latest
