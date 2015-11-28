@@ -1,15 +1,4 @@
 <template name="login">
-  {{#contentFor "navButtonLeft"}}
-
-  {{/contentFor}}
-
-  {{#contentFor "navTitle"}}
-  <h1 class="title">Login</h1>
-  {{/contentFor}}
-
-  {{#contentFor "navButtonRight"}}
-
-  {{/contentFor}}
 
   <main class="login">
 
@@ -24,16 +13,16 @@
         {{/if}}
 
         <div class="{{errorClass 'email'}}">
-          <input type="email" name="email" placeholder="Your Email" />
+          <input type="email" name="email" placeholder="{{_ 'email'}}" />
           <span class="icon-email" title="Your Email"></span>
         </div>
 
         <div class="{{errorClass 'password'}}">
-          <input type="password" name="password" placeholder="Password" />
+          <input type="password" name="password" placeholder="{{_ 'password'}}" />
           <span class="icon-lock" title="Password"></span>
         </div>
 
-        <button class="btn btn-positive btn-block">Login</button>
+        <button class="btn btn-positive btn-block">{{_ 'login'}}</button>
       </form>
     </div>
 

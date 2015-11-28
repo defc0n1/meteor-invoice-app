@@ -3,7 +3,7 @@
   {{/contentFor}}
 
   {{#contentFor "navTitle"}}
-    <h1 class="title">Companies</h1>
+    <h1 class="title">{{_ "Companies"}}</h1>
   {{/contentFor}}
 
   {{#contentFor "navButtonRight"}}
@@ -17,12 +17,12 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Name</th>
-          <th>Tax Number</th>
-          <th>Address</th>
-          <th>Phone</th>
-          <th>Fax</th>
-          <th>Action</th>
+          <th>{{_ "Business Name" }}</th>
+          <th>{{_ "Tax Number" }}</th>
+          <th>{{_ "Address" }}</th>
+          <th>{{_ "Phone" }}</th>
+          <th>{{_ "Fax" }}</th>
+          <th>{{_ "Actions" }}</th>
         </tr>
       </thead>
       <tbody>
@@ -34,7 +34,7 @@
             <td>{{address}}</td>
             <td>{{phones.home}}</td>
             <td>{{phones.fax}}</td>
-            <td><a href="{{pathFor 'company.show' }}" data-nav-direction="right" class="navigate-right">Update</a></td>
+            <td><a href="{{pathFor 'company.show' }}" data-nav-direction="right" class="navigate-right">{{_ "Update"}}</a></td>
           </tr>
         {{/each}}
       </tbody>

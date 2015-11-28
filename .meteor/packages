@@ -26,3 +26,4 @@ iron:router
 # Development
 anti:fake
 mrt:underscore-string-latest
+tap:i18n

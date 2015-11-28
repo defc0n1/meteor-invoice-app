@@ -1,0 +1,15 @@
+{
+  "Email": "Email",
+  "Password": "Mật khẩu",
+  "Login": "Đăng nhập",
+  "Dashboard": "Tổng Quát",
+  "Companies": "Doanh Nghiệp",
+  "Invoices": "Hóa Đơn",
+
+  "Business Name": "Tên DN",
+  "Tax Number": "Mã Số Thuế",
+  "Address": "Địa chỉ",
+  "Phone": "Điện thoại",
+  "Fax": "Fax",
+  "Actions": "Thao tác"
+}
