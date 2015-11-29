@@ -1,3 +1,12 @@
+var SELECTED_LIST_ITEM_ID = "selectedListItemID";
+
+Template.appLayout.events({
+  'click #TheList li': function(event, template) {
+      Session.set(SELECTED_LIST_ITEM_ID, this._id);
+  }
+})
+
+
 /*if (Meteor.isClient) {
   Template.appLayout.helpers({
     activeIfTemplateIs: function (template) {

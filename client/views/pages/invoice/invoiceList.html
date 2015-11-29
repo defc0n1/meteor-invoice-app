@@ -6,10 +6,9 @@
 
   {{#contentFor "TheList"}}
   <ul class="list-multiple-lines">
-    {{#each items}}
-      <li>
-
-        <div data-item-id="{{ _id }}" data-item-model="Invoices">
+    {{#each invoices}}
+      <li data-item-id="{{ _id }}">
+        <div>
           <span>{{ invoiceNumber }}</span>
           <span>{{ total.plusGST }}</span>
           <span>
@@ -17,10 +16,54 @@
             {{ customer.company }}
           </span>
         </div>
-
       </li>
     {{/each}}
   </ul>
   {{/contentFor}}
+
+  {{#contentFor "TopBar"}}
+    <a href="#" class="update">Update</a>
+  {{/contentFor}}
+
+  <div class="invoice-show">
+    {{#with selectedInvoice}}
+
+      <section class="generic">
+        <h3>{{_ "Invoice Number"}} {{ invoiceNumber }}</h3>
+      </section>
+      <section class="seller"></section>
+      <section class="buyer">
+        <dl>
+          <dt>{{_ "Customer name" }}:</dt>
+          <dd>{{ customer.name }}</dd>
+
+          <dt>{{_ "Company" }}:</dt>
+          <dd>{{ customer.company }}</dd>
+
+          <dt>{{_ "Tax Number" }}:</dt>
+          <dd>{{ customer.taxNumber }}</dd>
+
+          <dt>{{_ "Address" }}:</dt>
+          <dd>{{ customer.address }}</dd>
+        </dl>
+      </section>
+      <section class="totals">
+        <dl>
+          <dt>{{_ "Total before GST" }}:</dt>
+          <dd>{{ total.beforeGST }}</dd>
+
+          <dt>{{_ "GST" }}:</dt>
+          <dd>{{ total.GST }}</dd>
+
+          <dt>{{_ "Total after GST" }}:</dt>
+          <dd>{{ total.plusGST }}</dd>
+        </dl>
+      </section>
+    {{/with}}
+  </div>
+
+  <div class="invoice-update" style="display:none">
+    {{> quickForm collection="Invoices" doc=selectedInvoice id="invoiceUpdateForm" type="update"}}
+  </div>
 
 </template>

@@ -10,10 +10,10 @@
           <li class=""><a href="{{ pathFor 'company.list' }}">{{_ "Companies" }}</a></li>
           <li class=""><a href="{{ pathFor 'invoice.list' }}">{{_ "Invoices" }}</a></li>
         </ul>
-        <section id="TheSettings"></section>
+        <section id="SettingsBar"></section>
       </column>
       <column id="MidCol" cols="4">
-        <section id="SearchBox">
+        <section id="SearchBar">
           <input type="search" placeholder="{{_ 'Search'}}"/>
         </section>
         <section id="TheList">
@@ -21,7 +21,7 @@
         </section>
       </column>
       <column id="RightCol" cols="6">
-        <section id="TopBar">{{> yield "navTitle"}}</section>
+        <section id="TopBar">{{> yield "TopBar"}}</section>
         <section id="TheContent">
           {{> yield }}
         </section>
