@@ -1,0 +1,34 @@
+<template name="appLayout">
+
+  <row class="app-wrapper">
+      <column id="LeftCol" cols="2">
+        <section id="AppName">
+          <h1>HoaDonBC</h1>
+        </section>
+        <ul class="list-single-lines">
+          <li class=""><a href="{{ pathFor 'home' }}">{{_ "Dashboard"}}</a></li>
+          <li class=""><a href="{{ pathFor 'company.list' }}">{{_ "Companies" }}</a></li>
+          <li class=""><a href="{{ pathFor 'invoice.list' }}">{{_ "Invoices" }}</a></li>
+        </ul>
+        <section id="TheSettings"></section>
+      </column>
+      <column id="MidCol" cols="4">
+        <section id="SearchBox">
+          <input type="search" placeholder="{{_ 'Search'}}"/>
+        </section>
+        <section id="TheList">
+          {{> yield "TheList" }}
+        </section>
+      </column>
+      <column id="RightCol" cols="6">
+        <section id="TopBar">{{> yield "navTitle"}}</section>
+        <section id="TheContent">
+          {{> yield }}
+        </section>
+        <section id="BottomBar"></section>
+      </column>
+  </row>
+
+  {{flash 'top'}}
+
+</template>

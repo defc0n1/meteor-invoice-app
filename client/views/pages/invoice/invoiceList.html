@@ -1,0 +1,26 @@
+<template name="invoiceList">
+
+  {{#contentFor "modals"}}
+    <a href="{{pathFor 'invoice.new' }}" data-nav-direction="right">New invoice</a>
+  {{/contentFor}}
+
+  {{#contentFor "TheList"}}
+  <ul class="list-multiple-lines">
+    {{#each items}}
+      <li>
+
+        <div data-item-id="{{ _id }}" data-item-model="Invoices">
+          <span>{{ invoiceNumber }}</span>
+          <span>{{ total.plusGST }}</span>
+          <span>
+            {{ customer.name }}
+            {{ customer.company }}
+          </span>
+        </div>
+
+      </li>
+    {{/each}}
+  </ul>
+  {{/contentFor}}
+
+</template>

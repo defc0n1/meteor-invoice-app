@@ -12,7 +12,6 @@ insecure
 # Packages from Atmosphere:
 
 # Frontend
-nemo64:bootstrap
 less
 
 # Backend

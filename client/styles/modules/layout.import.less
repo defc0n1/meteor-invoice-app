@@ -1,0 +1,38 @@
+.app-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+
+  #LeftCol {
+    background-color: @bg-color-left-col;
+    margin-right: 0;
+    max-width: 200px;
+  }
+
+  #MidCol {
+    background-color: @bg-color-mid-col;
+    margin-right: 0;
+    max-width: 350px;
+    border-left: 1px solid @border-color-col;
+  }
+
+  #RightCol {
+    background-color: @bg-color-right-col;
+    border-left: 1px solid @border-color-col;
+  }
+
+  #AppName {
+    height: 45px;
+    border-bottom: 1px solid @border-color-appname;
+
+    h1 {
+      padding: 12px 0 0 0;
+      margin: 0 10px;
+      font-size: @font-size-small;
+    }
+  }
+
+  #SearchBox {
+    height: 45px;
+  }
+}
