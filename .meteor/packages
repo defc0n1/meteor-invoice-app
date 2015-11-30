@@ -6,7 +6,6 @@
 
 # Packages from the release:
 meteor-platform
-autopublish
 insecure
 
 # Packages from Atmosphere:

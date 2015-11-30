@@ -7,7 +7,7 @@
   {{#contentFor "TheList"}}
   <ul class="list-multiple-lines">
     {{#each invoices}}
-      <li data-item-id="{{ _id }}">
+      <li class="{{ isInvoiceSelected }}" data-item-id="{{ _id }}">
         <div>
           <span>{{ invoiceNumber }}</span>
           <span>{{ total.plusGST }}</span>
@@ -26,7 +26,7 @@
   {{/contentFor}}
 
   <div class="invoice-show">
-    {{#with selectedInvoice}}
+    {{#with theSelectedInvoice}}
 
       <section class="generic">
         <h3>{{_ "Invoice Number"}} {{ invoiceNumber }}</h3>
