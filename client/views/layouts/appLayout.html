@@ -6,9 +6,9 @@
           <h1>HoaDonBC</h1>
         </section>
         <ul class="list-single-lines">
-          <li class=""><a href="{{ pathFor 'home' }}">{{_ "Dashboard"}}</a></li>
-          <li class=""><a href="{{ pathFor 'company.list' }}">{{_ "Companies" }}</a></li>
-          <li class=""><a href="{{ pathFor 'invoice.list' }}">{{_ "Invoices" }}</a></li>
+          <li class="{{ isActiveRoute regex='home' }}"><a href="{{ pathFor 'home' }}">{{_ "Dashboard"}}</a></li>
+          <li class="{{ isActiveRoute regex='company.list' }}"><a href="{{ pathFor 'company.list' }}">{{_ "Companies" }}</a></li>
+          <li class="{{ isActiveRoute regex='invoice.list' }}"><a href="{{ pathFor 'invoice.list' }}">{{_ "Invoices" }}</a></li>
         </ul>
         <section id="SettingsBar"></section>
       </column>
