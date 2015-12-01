@@ -25,7 +25,11 @@
     <a href="#" class="update">Update</a>
   {{/contentFor}}
 
-  <div class="invoice-show">
+  {{#contentFor "BottomBar"}}
+    <a href="#" class="cancel">Cancel</a>
+  {{/contentFor}}
+
+  <div id="InvoiceShow">
     {{#with theSelectedInvoice}}
 
       <section class="generic">
@@ -62,8 +66,8 @@
     {{/with}}
   </div>
 
-  <div class="invoice-update" style="display:none">
-    {{> quickForm collection="Invoices" doc=selectedInvoice id="invoiceUpdateForm" type="update"}}
+  <div id="InvoiceUpdate" style="display:none">
+    {{> quickForm collection="Invoices" doc=theSelectedInvoice id="invoiceUpdateForm" type="update"}}
   </div>
 
 </template>

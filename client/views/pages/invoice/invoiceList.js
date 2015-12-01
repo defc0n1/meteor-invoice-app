@@ -21,14 +21,23 @@ if (Meteor.isClient) {
   });
 }
 
-Template.invoiceList.events({
+Template.topBar.events({
   "click a.update": function(event, template) {
-    template.$('#invoiceUpdateForm').show();
+    $('#InvoiceShow').hide();
+    $('#InvoiceUpdate').show();
+  }
+})
+
+Template.bottomBar.events({
+  "click a.cancel": function(event, template) {
+    $('#InvoiceShow').show();
+    $('#InvoiceUpdate').hide();
   }
 })
 
 AutoForm.addHooks(['invoiceUpdateForm'], {
   onSuccess: function(operation, result, template) {
-    template.$('#invoiceUpdateForm').hide();
+    $('#InvoiceShow').show();
+    $('#InvoiceUpdate').hide();
   }
 });
