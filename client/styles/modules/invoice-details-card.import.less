@@ -1,0 +1,30 @@
+article.invoice-details-card {
+
+    .invoice-number {
+      float: left;
+      padding-right: 20px;
+      height: 100px;
+      width: 150px;
+    }
+
+    .invoice-line-items {
+      &:before {
+        clear: both;
+        content: "";
+        display: block;
+      }
+    }
+
+    .invoice-line-items {
+      dt {
+        float: left;
+        padding-right: 20px;
+        text-align: right;
+        width: 150px;
+        color: #999;
+      }
+      dd {
+        margin-left: 150px;
+      }
+    }
+}
