@@ -30,27 +30,58 @@
   <article id="InvoiceShow" class="invoice-details-card">
     {{#with theSelectedInvoice}}
 
-      <div class="invoice-number">{{_ "#"}}{{ invoiceNumber }}</div>
+      <div class="invoice-generic-info">
+        <div class="invoice-number">{{_ "#"}}{{ invoiceNumber }}</div>
+        <div class="invoice-date">15/10/2015</div>
+      </div>
 
-      <section class="invoice-customer-info">
+      <div class="invoice-customer-info">
         <div class="invoice-customer-name">{{ customer.name }}</div>
         <div class="invoice-customer-company">{{ customer.company }}</div>
         <div class="invoice-customer-tax-number">{{ customer.taxNumber }}</div>
         <div class="invoice-customer-address">{{ customer.address }}</div>
-      </section>
+      </div>
 
-      <section class="invoice-line-items">
-        <dl>
-          <dt>{{_ "Subtotal" }}</dt>
-          <dd>{{ total.beforeGST }}</dd>
-
-          <dt>{{_ "GST" }}</dt>
-          <dd>{{ total.GST }}</dd>
-
-          <dt>{{_ "Total" }}</dt>
-          <dd>{{ total.plusGST }}</dd>
-        </dl>
-      </section>
+      <table class="invoice-line-items">
+        <tr class="order-item">
+          <td class="description">The product name goes here #1</td>
+          <td>10</td>
+          <td>100,000d</td>
+          <td>1,000,000d</td>
+        </tr>
+        <tr class="order-item">
+          <td class="description">The product name goes here #1</td>
+          <td>10</td>
+          <td>100,000d</td>
+          <td>1,000,000d</td>
+        </tr>
+        <tr class="order-item">
+          <td class="description">The product name goes here #1</td>
+          <td>10</td>
+          <td>100,000d</td>
+          <td>1,000,000d</td>
+        </tr>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><label>Subtotal</label></td>
+            <td>3,000,000d</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><label>GST</label></td>
+            <td>300,000d</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><label>Total</label></td>
+            <td>3,300,000d</td>
+          </tr>
+        </tfoot>
+      </table>
     {{/with}}
   </article>
 

@@ -1,30 +1,52 @@
 article.invoice-details-card {
 
-    .invoice-number {
+    @generic-info-width: 180px;
+
+    .invoice-generic-info {
       float: left;
       padding-right: 20px;
       height: 100px;
-      width: 150px;
+      line-height: 1.5;
+      width: @generic-info-width;
+
+      .invoice-number {
+        font-weight: 600;
+      }
     }
 
-    .invoice-line-items {
-      &:before {
+    .invoice-customer-info {
+      line-height: 1.5;
+      margin-left: @generic-info-width;
+
+      &:after {
         clear: both;
         content: "";
         display: block;
       }
+
+      .invoice-customer-name {
+        font-weight: 600;
+      }
     }
 
-    .invoice-line-items {
-      dt {
-        float: left;
-        padding-right: 20px;
+    table.invoice-line-items {
+      margin-top: 30px;
+
+      td {
         text-align: right;
-        width: 150px;
-        color: #999;
       }
-      dd {
-        margin-left: 150px;
+
+      td.description {
+        text-align: left;
+      }
+
+      > tfoot td {
+        color: @color-body;
+
+        > label{
+         color: #999;
+         font-weight: 600;
+       }
       }
     }
 }
