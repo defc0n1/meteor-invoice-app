@@ -23,33 +23,43 @@
     overflow-y: scroll;
     overflow-x: hidden;
   }
+}
 
-  #AppName {
-    height: 45px;
-    border-bottom: 1px solid @border-color-appname;
+#AppName {
+  height: 45px;
+  border-bottom: 1px solid @border-color-appname;
+  line-height: 45px;
+  padding: 0 12px;
+  font-size: 21px;
+}
 
-    h1 {
-      padding: 12px 0 0 0;
-      margin: 0 10px;
-      font-size: @font-size-small;
-    }
+#SearchBar,
+#TopBar {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 12px;
+  border-bottom: 1px solid #a3c3db;
+}
+
+#TopBar,
+#BottomBar {
+  a {
+    text-decoration: none;
+    font-size: 21px;
   }
+}
 
-  #SearchBar,
-  #TopBar,
-  #BottomBar {
-    height: 45px;
-  }
+#BottomBar {
+  height: 53px;
+  line-height: 53px;
+  border-top: 1px solid #d9d9d9;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 
-  #SearchBar,
-  #TopBar {
-    border-bottom: 1px solid #a3c3db;
-  }
-
-  #TheContent {
-    padding: 30px;
-  }
-
+#TheContent {
+  padding: 30px;
 }
 
 #SearchBar {
