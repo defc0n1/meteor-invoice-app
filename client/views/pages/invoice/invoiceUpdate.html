@@ -1,0 +1,78 @@
+<template name="invoiceUpdate">
+{{#autoForm id="invoiceUpdateForm" type="update" collection="Invoices" doc=theInvoiceToUpdate}}
+  <row>
+    <column class="invoice-customer-info" cols=8>
+      <div class="invoice-customer-name">
+        {{> afFieldInput name='customer.name' placeholder="{{_ 'Customer Name'}}"}}
+        {{#if afFieldIsInvalid name='customer.name'}}
+        <span class="help-block">{{{afFieldMessage name='customer.name'}}}</span>
+        {{/if}}
+      </div>
+      <div class="invoice-customer-company">
+        {{> afFieldInput name='customer.company' placeholder="{{_ 'Customer Company'}}"}}
+        {{#if afFieldIsInvalid name='customer.company'}}
+        <span class="help-block">{{{afFieldMessage name='customer.company'}}}</span>
+        {{/if}}
+      </div>
+      <div class="invoice-customer-tax-number">
+        {{> afFieldInput name='customer.taxNumber' placeholder="{{_ 'Customer Tax No.'}}"}}
+        {{#if afFieldIsInvalid name='customer.taxNumber'}}
+        <span class="help-block">{{{afFieldMessage name='customer.taxNumber'}}}</span>
+        {{/if}}
+      </div>
+      <div class="invoice-customer-address">
+        {{> afFieldInput name='customer.address' placeholder="{{_ 'Customer Address'}}"}}
+        {{#if afFieldIsInvalid name='customer.address'}}
+        <span class="help-block">{{{afFieldMessage name='customer.address'}}}</span>
+        {{/if}}
+      </div>
+    </column>
+
+    <column class="invoice-generic-info" cols=4>
+      <div class="invoice-number {{#if afFieldIsInvalid name='invoiceNumber'}}has-error{{/if}}">
+        {{> afFieldInput name='invoiceNumber' placeholder="{{_ 'Invoice No.'}}"}}
+        {{#if afFieldIsInvalid name='invoiceNumber'}}
+        <span class="help-block">{{{afFieldMessage name='invoiceNumber'}}}</span>
+        {{/if}}
+      </div>
+    </column>
+  </row>
+
+  <row>
+    <column cols=12>
+      <table class="invoice-line-items">
+
+        {{> afQuickField name='orderedItems' template='tableRow'}}
+
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><label>Subtotal</label></td>
+            <td>3,000,000d</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><label>GST</label></td>
+            <td>300,000d</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><label>Total</label></td>
+            <td>3,300,000d</td>
+          </tr>
+        </tfoot>
+      </table>
+    </column>
+  </row>
+
+  <section id="BottomBar">
+    <nav>
+      <button type="submit" class="save">Done</button>
+    </nav>
+  </section>
+
+  {{/autoForm}}
+</template>

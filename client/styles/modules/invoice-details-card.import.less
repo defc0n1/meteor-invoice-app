@@ -3,20 +3,26 @@ article.invoice-details-card {
     @generic-info-width: 180px;
 
     .invoice-generic-info {
-      float: left;
-      padding-right: 20px;
-      height: 100px;
+      float: right;
       line-height: 1.5;
       width: @generic-info-width;
+      text-align: right;
+
+      input {
+        text-align: right;
+      }
 
       .invoice-number {
         font-weight: 600;
+
+        input {
+          font-weight: 600;
+        }
       }
     }
 
     .invoice-customer-info {
       line-height: 1.5;
-      margin-left: @generic-info-width;
 
       &:after {
         clear: both;
@@ -24,7 +30,8 @@ article.invoice-details-card {
         display: block;
       }
 
-      .invoice-customer-name {
+      .invoice-customer-name,
+      .invoice-customer-name input {
         font-weight: 600;
       }
     }
@@ -34,10 +41,19 @@ article.invoice-details-card {
 
       td {
         text-align: right;
-      }
+        min-width: 100px;
+        line-height: @base-line-big;
 
-      td.description {
-        text-align: left;
+        > input {
+          text-align: right;
+          min-width: 100px;
+        }
+
+        &.description,
+        &.description > input {
+          text-align: left;
+          width: 250px;
+        }
       }
 
       > tfoot td {

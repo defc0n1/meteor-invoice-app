@@ -17,16 +17,16 @@ input[type="password"],
 textarea,
 select {
 	font-family: @font-family-base;
-	font-size: @font-size-btn-normal;
+	font-size: @font-size + 0px;
+	line-height: @base-line-big;
 	padding: @padding-input;
-	line-height: 1;
-	height: @input-height;
 	outline: none;
 	background: @color-input-background;
-	border: @input-border-size solid @color-input-border;
-	border-radius: @global-radius;
+	border: none;
 	margin-bottom: 0;
-	color: @color-input;
+	color: lighten(@color-input, 50%);
+	width: 100%;
+
 	&[disabled] {
 		resize: none;
 		opacity: 0.55;
@@ -56,7 +56,7 @@ input {
 	&:focus {
 		outline: none;
 		background: @color-input-background-focus;
-		border: @input-border-size solid @color-input-border-focus;
+		color: @color-primary;
 	}
 }
 

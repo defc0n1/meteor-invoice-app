@@ -1,6 +1,7 @@
 <template name="appLayout">
 
   <row class="app-wrapper">
+
       <column id="LeftCol" cols="2">
         <section id="AppName">
           HoaDonBC
@@ -12,6 +13,7 @@
         </ul>
         <section id="SettingsBar"></section>
       </column>
+
       <column id="MidCol" cols="4">
         <section id="SearchBar">
           <i class="fa fa-search"></i>
@@ -21,12 +23,14 @@
           {{> yield "TheList" }}
         </section>
       </column>
-      <column id="RightCol" cols="6">
+
+      <column id="RightCol" cols="8">
         {{> topBar }}
+
         <section id="TheContent">
           {{> yield }}
         </section>
-        {{> bottomBar }}
+
       </column>
   </row>
 
@@ -36,8 +40,4 @@
 
 <template name="topBar">
   <section id="TopBar">{{> yield "TopBar"}}</section>
-</template>
-
-<template name="bottomBar">
-  <section id="BottomBar">{{> yield "BottomBar"}}</section>
 </template>

@@ -5,6 +5,7 @@ if (Meteor.isClient) {
     if (handle.ready()) {
       var firstInvoice = Invoices.findOne();
       Session.set('selectedListItemID', firstInvoice._id);
+      Session.set('isUpdatingInvoice', false);
     }
   });
 
@@ -16,28 +17,19 @@ if (Meteor.isClient) {
       return Invoices.findOne({_id: Session.get('selectedListItemID')});
     },
     isInvoiceSelected: function() {
-     return Session.equals("selectedListItemID", this._id) ? "selected" : '';
+      return Session.equals("selectedListItemID", this._id) ? "selected" : '';
+    },
+    isUpdatingInvoice: function() {
+      return Session.get('isUpdatingInvoice');
     }
   });
 }
 
 Template.topBar.events({
   "click a.update": function(event, template) {
-    $('#InvoiceShow').hide();
-    $('#InvoiceUpdate').show();
-  }
-})
-
-Template.bottomBar.events({
+    Session.set('isUpdatingInvoice', true);
+  },
   "click a.cancel": function(event, template) {
-    $('#InvoiceShow').show();
-    $('#InvoiceUpdate').hide();
+    Session.set('isUpdatingInvoice', false);
   }
 })
-
-AutoForm.addHooks(['invoiceUpdateForm'], {
-  onSuccess: function(operation, result, template) {
-    $('#InvoiceShow').show();
-    $('#InvoiceUpdate').hide();
-  }
-});

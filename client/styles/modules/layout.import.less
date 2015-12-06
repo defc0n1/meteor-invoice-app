@@ -12,8 +12,10 @@
   #MidCol {
     background-color: @bg-color-mid-col;
     margin-right: 0;
-    min-width: 350px;
     border-left: 1px solid @border-color-col;
+
+    min-width: 200px;
+    max-width: 350px;
   }
 
   #RightCol {
@@ -50,12 +52,16 @@
 }
 
 #BottomBar {
-  height: 53px;
-  line-height: 53px;
-  border-top: 1px solid #d9d9d9;
-  position: fixed;
+  position: absolute;;
   bottom: 0;
   width: 100%;
+
+  nav {
+    border-top: 1px solid #d9d9d9;
+    width: 100%;    
+    padding: 12px 12px 0 12px;
+    line-height: 53px;
+  }
 }
 
 #TheContent {
