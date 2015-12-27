@@ -14,13 +14,18 @@ article.invoice-details-card {
 
     label {
       float: left;
-      width: 30%;
+      width: 200px;
       font-weight: 600;
+      padding-right: 20px;
+      color: grey;
+      font-size: 90%;
+      line-height: 1.75;
+      margin-left: 40px;
     }
 
     div.value {
       float: left;
-      width: 70%;
+      width: 559px;
     }
   }
 
@@ -28,7 +33,7 @@ article.invoice-details-card {
     td {
       text-align: right;
       line-height: @base-line-big;
-      min-width: 110px;
+      border-bottom: none;
 
       > input {
         text-align: right;
@@ -37,7 +42,7 @@ article.invoice-details-card {
 
     td[class$='name'] {
       text-align: left;
-      min-width: 350px;
+      width: 350px;
 
       > input {
         text-align: left;
@@ -46,17 +51,33 @@ article.invoice-details-card {
 
     td[class$='actions'] {
       width: 40px;
+      text-align: right;
+    }
+
+    td[class$='add-line-item'] {
+      padding-top: 40px;
       text-align: left;
     }
 
     > tfoot td {
       color: @color-body;
       text-align: right;
+      font-weight: 600;
+    }
+
+    > tfoot td.tfoot-label {
+      padding-right: 20px;
+      color: grey;
     }
 
     a.autoform-remove-item,
     a.autoform-add-item {
-      font-size: 30px;
+      font-size: 17px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    a.autoform-remove-item {
+      color: @color-error;
     }
   }
 }

@@ -69,45 +69,45 @@
 
             <thead>
               <tr>
-                <td class="orderedItem.name">{{_ 'Name'}}</td>
+                <td class="orderedItem.actions"></td>
+                <td class="orderedItem.name">{{_ 'Product Name'}}</td>
                 <td>{{_ 'Unit Price'}}</td>
                 <td>{{_ 'Quantity'}}</td>
                 <td>{{_ 'Price'}}</td>
-                <td class="orderedItem.actions"></td>
               </tr>
             </thead>
 
             {{#each orderedItems}}
             <tr>
-              <td class="orderedItems.{{ index }}.name">{{ this.name }}</td>
+              <td class="orderedItem.actions"></td>
+              <td class="orderedItems.name">{{ this.name }}</td>
               <td>{{ this.unitPrice }}</td>
               <td>{{ this.quantity }}</td>
               <td>{{ this.totalPrice }}</td>
-              <td class="orderedItems.{{ index }}.actions"></td>
             </tr>
             {{/each}}
 
             <tfoot>
               <tr>
+                <td class="orderedItem.actions"></td>
                 <td></td>
                 <td></td>
-                <td><strong>Subtotal</strong></td>
+                <td class="tfoot-label">Subtotal</td>
                 <td>{{ total.beforeGST }}</td>
-                <td></td>
               </tr>
               <tr>
+                <td class="orderedItem.actions"></td>
                 <td></td>
                 <td></td>
-                <td><strong>GST</strong></td>
+                <td class="tfoot-label">GST</td>
                 <td>{{ total.GST }}</td>
-                <td></td>
               </tr>
               <tr>
+                <td class="orderedItem.actions"></td>
                 <td></td>
                 <td></td>
-                <td><strong>Total</strong></td>
-                <td>{{ total.afterGST }}</td>
-                <td></td>
+                <td class="tfoot-label">Total</td>
+                <td>{{ total.afterGST }}</td>                
               </tr>
             </tfoot>
           </table>

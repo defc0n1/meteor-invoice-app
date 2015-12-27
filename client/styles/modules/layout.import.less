@@ -1,27 +1,36 @@
-.app-wrapper {
-  position: fixed;
+html, body {
   height: 100%;
-  width: 100%;
+}
+
+.app-wrapper {
+  position:relative;
+  height: 100%;
+
+  #LeftCol, #MidCol, #RightCol {
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+  }
 
   #LeftCol {
     background-color: @bg-color-left-col;
-    margin-right: 0;
-    min-width: 200px;
+    width: 200px;
   }
 
   #MidCol {
     background-color: @bg-color-mid-col;
-    margin-right: 0;
     border-left: 1px solid @border-color-col;
-
-    min-width: 200px;
-    max-width: 350px;
+    left: 200px;
+    width: 350px;
   }
 
   #RightCol {
     background-color: @bg-color-right-col;
     border-left: 1px solid @border-color-col;
-    position: relative;
+    border-right: 1px solid @border-color-col;
+    width: 850px;
+    left: 551px;
   }
 }
 
@@ -83,9 +92,10 @@
 }
 
 #TheContent {
-  margin: 45px 0 80px 0;
+  padding: 85px 0;
   overflow-y: scroll;
   overflow-x: hidden;
+  height: 100%;
 }
 
 #SearchBar {
