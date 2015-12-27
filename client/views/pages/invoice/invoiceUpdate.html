@@ -1,46 +1,76 @@
 <template name="invoiceUpdate">
 {{#autoForm id="invoiceUpdateForm" type="update" collection="Invoices" doc=theInvoiceToUpdate}}
-  <row>
-    <column class="invoice-customer-info" cols=8>
-      <div class="invoice-customer-name">
-        {{> afFieldInput name='customer.name' placeholder="{{_ 'Customer Name'}}"}}
-        {{#if afFieldIsInvalid name='customer.name'}}
-        <span class="help-block">{{{afFieldMessage name='customer.name'}}}</span>
-        {{/if}}
+  <fieldset>
+      <div class="field {{#if afFieldIsInvalid name='invoiceNumber'}}has-error{{/if}}">
+        <label>{{_ 'Invoice No.'}}</label>
+        <div class="value">
+          {{> afFieldInput name='invoiceNumber'}}
+          {{#if afFieldIsInvalid name='invoiceNumber'}}
+          <span class="help-block">{{{afFieldMessage name='invoiceNumber'}}}</span>
+          {{/if}}
+        </div>
       </div>
-      <div class="invoice-customer-company">
-        {{> afFieldInput name='customer.company' placeholder="{{_ 'Customer Company'}}"}}
-        {{#if afFieldIsInvalid name='customer.company'}}
-        <span class="help-block">{{{afFieldMessage name='customer.company'}}}</span>
-        {{/if}}
+      <div class="field">
+        <label>{{_ 'Invoice Date'}}</label>
+        <div class="value">
+          {{> afFieldInput name='invoiceNumber'}}
+          {{#if afFieldIsInvalid name='invoiceNumber'}}
+          <span class="help-block">{{{afFieldMessage name='invoiceNumber'}}}</span>
+          {{/if}}
+        </div>
       </div>
-      <div class="invoice-customer-tax-number">
-        {{> afFieldInput name='customer.taxNumber' placeholder="{{_ 'Customer Tax No.'}}"}}
-        {{#if afFieldIsInvalid name='customer.taxNumber'}}
-        <span class="help-block">{{{afFieldMessage name='customer.taxNumber'}}}</span>
-        {{/if}}
-      </div>
-      <div class="invoice-customer-address">
-        {{> afFieldInput name='customer.address' placeholder="{{_ 'Customer Address'}}"}}
-        {{#if afFieldIsInvalid name='customer.address'}}
-        <span class="help-block">{{{afFieldMessage name='customer.address'}}}</span>
-        {{/if}}
-      </div>
-    </column>
+  </fieldset>
 
-    <column class="invoice-generic-info" cols=4>
-      <div class="invoice-number {{#if afFieldIsInvalid name='invoiceNumber'}}has-error{{/if}}">
-        {{> afFieldInput name='invoiceNumber' placeholder="{{_ 'Invoice No.'}}"}}
-        {{#if afFieldIsInvalid name='invoiceNumber'}}
-        <span class="help-block">{{{afFieldMessage name='invoiceNumber'}}}</span>
-        {{/if}}
+  <fieldset>
+      <div class="field {{#if afFieldIsInvalid name='customer.name'}}has-error{{/if}}">
+        <label>{{_ 'Customer Name'}}</label>
+        <div class="value">
+          {{> afFieldInput name='customer.name'}}
+          {{#if afFieldIsInvalid name='customer.name'}}
+          <span class="help-block">{{{afFieldMessage name='customer.name'}}}</span>
+          {{/if}}
+        </div>
       </div>
-    </column>
-  </row>
+      <div class="field {{#if afFieldIsInvalid name='customer.company'}}has-error{{/if}}">
+        <label>{{_ 'Customer Company'}}</label>
+        <div class="value">
+          {{> afFieldInput name='customer.company'}}
+          {{#if afFieldIsInvalid name='customer.company'}}
+          <span class="help-block">{{{afFieldMessage name='customer.company'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='customer.taxNumber'}}has-error{{/if}}">
+        <label>{{_ 'Customer Tax No.'}}</label>
+        <div class="value">
+          {{> afFieldInput name='customer.taxNumber'}}
+          {{#if afFieldIsInvalid name='customer.taxNumber'}}
+          <span class="help-block">{{{afFieldMessage name='customer.taxNumber'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='customer.address'}}has-error{{/if}}">
+        <label>{{_ 'Customer Address'}}</label>
+        <div class="value">
+          {{> afFieldInput name='customer.address'}}
+          {{#if afFieldIsInvalid name='customer.address'}}
+          <span class="help-block">{{{afFieldMessage name='customer.address'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+  </fieldset>
 
-  <row>
-    <column cols=12>
+  <fieldset>
       <table class="invoice-line-items">
+        <thead>
+          <tr>
+            <td>{{_ 'Name'}}</td>
+            <td>{{_ 'Unit Price'}}</td>
+            <td>{{_ 'Quantity'}}</td>
+            <td>{{_ 'Total Price'}}</td>
+            <td></td>
+          </tr>
+        </thead>
 
         {{> afQuickField name='orderedItems' template='tableRow'}}
 
@@ -50,23 +80,25 @@
             <td></td>
             <td><label>Subtotal</label></td>
             <td>3,000,000d</td>
+            <td></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td><label>GST</label></td>
             <td>300,000d</td>
+            <td></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td><label>Total</label></td>
             <td>3,300,000d</td>
+            <td></td>
           </tr>
         </tfoot>
       </table>
-    </column>
-  </row>
+  </fieldset>
 
   <section id="BottomBar">
     <nav>

@@ -1,68 +1,38 @@
 article.invoice-details-card {
+  line-height: 1.5;
 
-    @generic-info-width: 180px;
+  label {
+    float: left;
+    width: 50%;
+    font-weight: 600;
+  }
 
-    .invoice-generic-info {
-      float: right;
-      line-height: 1.5;
-      width: @generic-info-width;
+  div.value {
+    float: left;
+    width: 50%;
+  }
+
+  table.invoice-line-items {
+    td {
       text-align: right;
+      min-width: 100px;
+      line-height: @base-line-big;
 
-      input {
-        text-align: right;
-      }
-
-      .invoice-number {
-        font-weight: 600;
-
-        input {
-          font-weight: 600;
-        }
-      }
-    }
-
-    .invoice-customer-info {
-      line-height: 1.5;
-
-      &:after {
-        clear: both;
-        content: "";
-        display: block;
-      }
-
-      .invoice-customer-name,
-      .invoice-customer-name input {
-        font-weight: 600;
-      }
-    }
-
-    table.invoice-line-items {
-      margin-top: 30px;
-
-      td {
+      > input {
         text-align: right;
         min-width: 100px;
-        line-height: @base-line-big;
-
-        > input {
-          text-align: right;
-          min-width: 100px;
-        }
-
-        &.description,
-        &.description > input {
-          text-align: left;
-          width: 250px;
-        }
       }
 
-      > tfoot td {
-        color: @color-body;
-
-        > label{
-         color: #999;
-         font-weight: 600;
-       }
+      &.description,
+      &.description > input {
+        text-align: left;
+        width: 250px;
       }
     }
+
+    > tfoot td {
+      color: @color-body;
+      text-align: right;
+    }
+  }
 }

@@ -34,64 +34,85 @@
     <article id="InvoiceShow" class="invoice-details-card">
       {{#with theSelectedInvoice}}
 
-      <row>
-        <column class="invoice-customer-info" cols=8>
-          <div class="invoice-customer-name">{{ customer.name }}</div>
-          <div class="invoice-customer-company">{{ customer.company }}</div>
-          <div class="invoice-customer-tax-number">{{ customer.taxNumber }}</div>
-          <div class="invoice-customer-address">{{ customer.address }}</div>
-        </column>
+      <fieldset>
+          <div class="field">
+            <label>{{_ 'Invoice Number'}}</label>
+            <div class="value">{{_ "#"}}{{ invoiceNumber }}</div>
+          </div>
+          <div class="field">
+            <label>{{_ 'Invoice Date'}}</label>
+            <div class="value">15/10/2015</div>
+          </div>
+      </fieldset>
 
-        <column class="invoice-generic-info" cols=4>
-          <div class="invoice-number">{{_ "#"}}{{ invoiceNumber }}</div>
-          <div class="invoice-date">15/10/2015</div>
-        </column>
-      </row>
+      <fieldset>
+        <div class="field">
+          <label>{{_ 'Customer Name'}}</label>
+          <div class="value">{{ customer.name }}</div>
+        </div>
+        <div class="field">
+          <label>{{_ 'Customer Company'}}</label>
+          <div class="value">{{ customer.company }}</div>
+        </div>
+        <div class="field">
+          <label>{{_ 'Customer Tax No.'}}</label>
+          <div class="value">{{ customer.taxNumber }}</div>
+        </div>
+        <div class="field">
+          <label>{{_ 'Customer Address'}}</label>
+          <div class="value">{{ customer.address }}</div>
+        </div>
+      </fieldset>
 
-      <row>
-        <column cols=12>
+      <fieldset>
           <table class="invoice-line-items">
-            <tr class="order-item">
-              <td class="description">The product name goes here #1</td>
-              <td>10</td>
-              <td>100,000d</td>
-              <td>1,000,000d</td>
+
+            <thead>
+              <tr>
+                <td>{{_ 'Name'}}</td>
+                <td>{{_ 'Unit Price'}}</td>
+                <td>{{_ 'Quantity'}}</td>
+                <td>{{_ 'Total Price'}}</td>
+                <td></td>
+              </tr>
+            </thead>
+
+            {{#each orderedItems}}
+            <tr>
+              <td>{{ this.name }}</td>
+              <td>{{ this.unitPrice }}</td>
+              <td>{{ this.quantity }}</td>
+              <td>{{ this.totalPrice }}</td>
+              <td></td>
             </tr>
-            <tr class="order-item">
-              <td class="description">The product name goes here #1</td>
-              <td>10</td>
-              <td>100,000d</td>
-              <td>1,000,000d</td>
-            </tr>
-            <tr class="order-item">
-              <td class="description">The product name goes here #1</td>
-              <td>10</td>
-              <td>100,000d</td>
-              <td>1,000,000d</td>
-            </tr>
+            {{/each}}
+
             <tfoot>
               <tr>
                 <td></td>
                 <td></td>
-                <td><label>Subtotal</label></td>
+                <td><strong>Subtotal</strong></td>
                 <td>3,000,000d</td>
+                <td></td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
-                <td><label>GST</label></td>
+                <td><strong>GST</strong></td>
                 <td>300,000d</td>
+                <td></td>
               </tr>
               <tr>
                 <td></td>
                 <td></td>
-                <td><label>Total</label></td>
+                <td><strong>Total</strong></td>
                 <td>3,300,000d</td>
+                <td></td>
               </tr>
             </tfoot>
           </table>
-        </column>
-      </row>
+
+      </fieldset>
       {{/with}}
     </article>
   {{/if}}
