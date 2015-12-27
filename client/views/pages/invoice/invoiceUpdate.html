@@ -79,21 +79,21 @@
             <td></td>
             <td></td>
             <td><strong>Subtotal</strong></td>
-            <td>3,000,000d</td>
+            <td>{{> afFieldInput name='total.beforeGST' class="invoice-subtotal" }}</td>
             <td></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td><strong>GST</strong></td>
-            <td>300,000d</td>
+            <td>{{> afFieldInput name='total.GST' class="invoice-GST" }}</td>
             <td></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td><strong>Total</strong></td>
-            <td>3,300,000d</td>
+            <td>{{> afFieldInput name='total.afterGST' class="invoice-total-after-GST" }}</td>
             <td></td>
           </tr>
         </tfoot>
