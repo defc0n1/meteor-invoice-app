@@ -21,9 +21,7 @@
   #RightCol {
     background-color: @bg-color-right-col;
     border-left: 1px solid @border-color-col;
-
-    overflow-y: scroll;
-    overflow-x: hidden;
+    position: relative;
   }
 }
 
@@ -45,10 +43,18 @@
 
 #TopBar,
 #BottomBar {
+  background: white;
+
   a {
     text-decoration: none;
     font-size: 21px;
   }
+}
+
+#TopBar {
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 #BottomBar {
@@ -58,14 +64,28 @@
 
   nav {
     border-top: 1px solid #d9d9d9;
-    width: 100%;    
+    width: 100%;
     padding: 12px 12px 0 12px;
     line-height: 53px;
+  }
+
+  button {
+    background: none;
+    text-decoration: none;
+    font-size: 21px;
+    color: @color-link;
+    padding: 0;
+    &:hover {
+      .transition;
+      color: @color-link-hover;
+    }
   }
 }
 
 #TheContent {
-  padding: 30px;
+  margin: 45px 0 80px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #SearchBar {

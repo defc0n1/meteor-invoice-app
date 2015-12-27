@@ -37,7 +37,7 @@
       <fieldset>
           <div class="field">
             <label>{{_ 'Invoice Number'}}</label>
-            <div class="value">{{_ "#"}}{{ invoiceNumber }}</div>
+            <div class="value">{{ invoiceNumber }}</div>
           </div>
           <div class="field">
             <label>{{_ 'Invoice Date'}}</label>
@@ -69,21 +69,21 @@
 
             <thead>
               <tr>
-                <td>{{_ 'Name'}}</td>
+                <td class="orderedItem.name">{{_ 'Name'}}</td>
                 <td>{{_ 'Unit Price'}}</td>
                 <td>{{_ 'Quantity'}}</td>
-                <td>{{_ 'Total Price'}}</td>
-                <td></td>
+                <td>{{_ 'Price'}}</td>
+                <td class="orderedItem.actions"></td>
               </tr>
             </thead>
 
             {{#each orderedItems}}
             <tr>
-              <td>{{ this.name }}</td>
+              <td class="orderedItems.{{ index }}.name">{{ this.name }}</td>
               <td>{{ this.unitPrice }}</td>
               <td>{{ this.quantity }}</td>
               <td>{{ this.totalPrice }}</td>
-              <td></td>
+              <td class="orderedItems.{{ index }}.actions"></td>
             </tr>
             {{/each}}
 

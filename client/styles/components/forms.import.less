@@ -24,7 +24,7 @@ select {
 	background: @color-input-background;
 	border: none;
 	margin-bottom: 0;
-	color: lighten(@color-input, 50%);
+	color: @color-input;
 	width: 100%;
 
 	&[disabled] {
@@ -56,15 +56,15 @@ input {
 	&:focus {
 		outline: none;
 		background: @color-input-background-focus;
-		color: @color-primary;
+		color:  @color-input;
 	}
 }
 
 // Fieldset
 fieldset {
 	padding: 11px 16px;
-	margin-bottom: @base-line-smaller;
-	border: @fieldset-border-size solid @color-fieldset-border;
+	margin-bottom: 0;
+	border-bottom: @fieldset-border-size solid @color-fieldset-border;
 	border-radius: @global-radius;
 	& *:last-child {
 		margin-bottom: 0 !important;

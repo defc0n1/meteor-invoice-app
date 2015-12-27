@@ -1,38 +1,62 @@
 article.invoice-details-card {
   line-height: 1.5;
 
-  label {
-    float: left;
-    width: 50%;
-    font-weight: 600;
-  }
+  fieldset {
+    .field {
+      margin-bottom: 2px;
 
-  div.value {
-    float: left;
-    width: 50%;
+      &:after {
+        clear: both;
+        content: " ";
+        display: block;
+      }
+    }
+
+    label {
+      float: left;
+      width: 30%;
+      font-weight: 600;
+    }
+
+    div.value {
+      float: left;
+      width: 70%;
+    }
   }
 
   table.invoice-line-items {
     td {
       text-align: right;
-      min-width: 100px;
       line-height: @base-line-big;
+      min-width: 110px;
 
       > input {
         text-align: right;
-        min-width: 100px;
       }
+    }
 
-      &.description,
-      &.description > input {
+    td[class$='name'] {
+      text-align: left;
+      min-width: 350px;
+
+      > input {
         text-align: left;
-        width: 250px;
       }
+    }
+
+    td[class$='actions'] {
+      width: 40px;
+      text-align: left;
     }
 
     > tfoot td {
       color: @color-body;
       text-align: right;
+    }
+
+    a.autoform-remove-item,
+    a.autoform-add-item {
+      font-size: 30px;
     }
   }
 }

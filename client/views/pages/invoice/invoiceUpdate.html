@@ -2,7 +2,7 @@
 {{#autoForm id="invoiceUpdateForm" type="update" collection="Invoices" doc=theInvoiceToUpdate}}
   <fieldset>
       <div class="field {{#if afFieldIsInvalid name='invoiceNumber'}}has-error{{/if}}">
-        <label>{{_ 'Invoice No.'}}</label>
+        <label>{{_ 'Invoice Number'}}</label>
         <div class="value">
           {{> afFieldInput name='invoiceNumber'}}
           {{#if afFieldIsInvalid name='invoiceNumber'}}
@@ -64,11 +64,11 @@
       <table class="invoice-line-items">
         <thead>
           <tr>
-            <td>{{_ 'Name'}}</td>
+            <td class="orderedItem.name">{{_ 'Name'}}</td>
             <td>{{_ 'Unit Price'}}</td>
             <td>{{_ 'Quantity'}}</td>
-            <td>{{_ 'Total Price'}}</td>
-            <td></td>
+            <td>{{_ 'Price'}}</td>
+            <td class="orderedItem.actions"></td>
           </tr>
         </thead>
 
@@ -78,21 +78,21 @@
           <tr>
             <td></td>
             <td></td>
-            <td><label>Subtotal</label></td>
+            <td><strong>Subtotal</strong></td>
             <td>3,000,000d</td>
             <td></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
-            <td><label>GST</label></td>
+            <td><strong>GST</strong></td>
             <td>300,000d</td>
             <td></td>
           </tr>
           <tr>
             <td></td>
             <td></td>
-            <td><label>Total</label></td>
+            <td><strong>Total</strong></td>
             <td>3,300,000d</td>
             <td></td>
           </tr>
