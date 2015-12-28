@@ -4,9 +4,13 @@
   {{#contentFor "TopBar"}}
   <nav>
     {{#unless isUpdatingInvoice}}
-    <a href="#" class="update">Update</a>
+      {{#if isAnyInvoiceSelected}}
+        <a href="#" class="update">Update</a>
+      {{else}}
+        <a href="#" class="new">New</a>
+      {{/if}}
     {{else}}
-    <a href="#" class="cancel">Cancel</a>
+      <a href="#" class="cancel">Cancel</a>
     {{/unless}}
   </nav>
   {{/contentFor}}
@@ -14,9 +18,9 @@
   {{#contentFor "TheList"}}
   <ul class="list-multiple-lines">
     {{#each invoices}}
-    <li class="{{ isInvoiceSelected }}" data-item-id="{{ _id }}">
+    <li class="{{ isThisInvoiceSelected }}" data-item-id="{{ _id }}">
       <article class="invoice-summary-card">
-        <div class="invoice-total-after-GST">{{ total.afterGST }}</div>
+        <div class="invoice-total-after-GST">{{ total.afterGST }}d</div>
         <div class="invoice-customer-name">{{ customer.name }}</div>
         <div class="invoice-number">#{{ invoiceNumber }}</div>
         <div class="invoice-company-name">{{ customer.company }}</div>
@@ -31,7 +35,12 @@
       {{> invoiceUpdate theInvoiceToUpdate=theSelectedInvoice}}
     </article>
   {{else}}
-    <article id="InvoiceShow" class="invoice-details-card">
+    {{#if isInsertingInvoice }}
+      <article id="InvoiceInsert" class="invoice-details-card">
+        {{> invoiceInsert }}
+      </article>
+    {{else}}
+      <article id="InvoiceShow" class="invoice-details-card">
       {{#with theSelectedInvoice}}
 
       <fieldset>
@@ -115,5 +124,6 @@
       </fieldset>
       {{/with}}
     </article>
+    {{/if}}
   {{/if}}
 </template>
