@@ -8,10 +8,12 @@
         </section>
         <ul class="list-single-lines">
           <li class="{{ isActiveRoute regex='home' }}"><a href="{{ pathFor 'home' }}">{{_ "Dashboard"}}</a></li>
-          <li class="{{ isActiveRoute regex='company.list' }}"><a href="{{ pathFor 'company.list' }}">{{_ "Companies" }}</a></li>
-          <li class="{{ isActiveRoute regex='invoice.list' }}"><a href="{{ pathFor 'invoice.list' }}">{{_ "Invoices" }}</a></li>
+          <li class="{{ isActiveRoute regex='companies' }}"><a href="{{ pathFor 'companies' }}">{{_ "Companies" }}</a></li>
+          <li class="{{ isActiveRoute regex='invoices' }}"><a href="{{ pathFor 'invoices' }}">{{_ "Invoices" }}</a></li>
         </ul>
-        <section id="SettingsBar"></section>
+        <section id="SettingsBar">
+          {{> yield "SettingsBar"}}
+        </section>
       </div>
 
       <div id="MidCol">
@@ -25,7 +27,9 @@
       </div>
 
       <div id="RightCol">
-        {{> topBar }}
+        <section id="TopBar">
+          {{> yield "TopBar"}}
+        </section>
 
         <section id="TheContent">
           {{> yield }}
@@ -36,8 +40,4 @@
 
   {{flash 'top'}}
 
-</template>
-
-<template name="topBar">
-  <section id="TopBar">{{> yield "TopBar"}}</section>
 </template>

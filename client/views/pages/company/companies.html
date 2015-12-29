@@ -1,0 +1,32 @@
+<template name="companies">
+
+  {{#contentFor "SettingsBar"}}
+    <nav>
+      <a href="" class="insert"><i class="fa fa-plus"></i></a>
+    </nav>
+  {{/contentFor}}
+
+  {{#contentFor "TopBar"}}
+  <nav>
+    <a href="" class="update">Update</a>
+  </nav>
+  {{/contentFor}}
+
+  {{#contentFor "TheList"}}
+  <ul class="list-multiple-lines">
+    {{#each listItems}}
+    <li data-item-id="{{ this._id }}">
+      {{name}}
+      <small>{{taxNumber}}</small> <br/>
+      <small>{{address}}</small> - <small>{{phones.home}}</small>
+    </li>
+    {{/each}}
+  </ul>
+  {{/contentFor}}
+
+  {{ whatTemplate }}
+
+  {{ > Template.dynamic template=whatTemplate }}
+
+  <p>Invoices</p>
+</template>
