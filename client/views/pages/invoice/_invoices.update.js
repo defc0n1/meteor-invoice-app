@@ -1,24 +1,13 @@
-AutoForm.addHooks(['invoiceUpdateForm'], {
-  onSuccess: function(operation, result, template) {
-    // $('#InvoiceShow').show();
-    // $('#InvoiceUpdate').hide();
-    Session.set('isUpdatingInvoice', false);
-  },
-  onError: function(operation, result, template) {
-    console.log('Error');
-  }
-});
-
-Template.invoiceUpdate.events({
+Template.invoicesForm.events({
   "click a.save": function(event, template) {
-    $('invoiceUpdateForm').submit();
+    $('invoicesUpdateForm').submit();
   },
   "click a.delete": function(event, template) {
-    Session.set('isUpdatingInvoice', false);
+    Session.set('FORM_ACTION', '');
   },
   "blur input.quantity": updateLineItemTotal,
-  "blur input.unit-price": updateLineItemTotal,
-})
+  "blur input.unit-price": updateLineItemTotal
+});
 
 function updateLineItemTotal(event, template) {
   var element = $(event.target),

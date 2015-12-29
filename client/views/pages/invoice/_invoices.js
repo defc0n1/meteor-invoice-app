@@ -1,3 +1,18 @@
+AutoForm.addHooks(['invoicesInsertForm'], {
+  onSuccess: function(operation, result, template) {
+    Router.go("invoices");
+  }
+});
+
+AutoForm.addHooks(['invoicesUpdateForm'], {
+  onSuccess: function(operation, result, template) {
+    Session.set('FORM_ACTION', null);
+  },
+  onError: function(operation, result, template) {
+    console.log('Error');
+  }
+});
+
 if (Meteor.isClient) {
   var handle = Meteor.subscribe("invoices");
 
@@ -6,16 +21,16 @@ if (Meteor.isClient) {
       var firstInvoice = Invoices.findOne();
       if (!_.isUndefined(firstInvoice)) {
         Session.set('selectedListItemID', firstInvoice._id);
-        Session.set('isAnyInvoiceSelected', true);
+        Session.set('FORM_ACTION', null);
       } else {
-        Session.set('isAnyInvoiceSelected', false);
+        Session.set('FORM_ACTION', null);
       }
 
-      Session.set('isUpdatingInvoice', false);
+      Session.set('FORM_ACTION', null);
     }
   });
 
-  Template.invoiceList.helpers({
+  Template.invoices.helpers({
     invoices: function() {
       return Invoices.find({});
     },

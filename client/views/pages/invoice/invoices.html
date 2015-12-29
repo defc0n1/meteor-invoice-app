@@ -27,9 +27,18 @@
   </ul>
   {{/contentFor}}
 
-  {{ whatTemplate }}
+  {{#if isUpdating }}
+    {{#autoForm id="invoiceUpdateForm" type="update" collection="Invoices" doc=theSelectedInvoice}}
+      {{> invoicesForm }}
+    {{/autoForm}}
+  {{else}}
+    {{#if isInserting }}
+      {{#autoForm id="invoicesInsertForm" type="insert" collection="Invoices"}}
+        {{> invoicesForm }}
+      {{/autoForm}}
+    {{else}}
+      {{> invoicesView theSelectedInvoice=theSelectedInvoice}}
+    {{/if}}
+  {{/if}}
 
-  {{ > Template.dynamic template=whatTemplate }}
-
-  <p>Invoices</p>
 </template>
