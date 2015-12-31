@@ -1,0 +1,14 @@
+<template name="invoicesList">
+  <ul class="list-four-corners">
+    {{#each items}}
+    <li class="{{ isSelected }}" data-item-id="{{ _id }}">
+      <article>
+        <div class="top-right">{{ total.afterGST }}d</div>
+        <div class="top-left">{{ customer.name }}</div>
+        <div class="bottom-right">{{ invoiceNumber }}</div>
+        <div class="bottom-left">{{ customer.company }}</div>
+      </article>
+    </li>
+    {{/each}}
+  </ul>
+</template>

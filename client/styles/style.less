@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic);
 
+// Base
 @import "components/mixins.import.less";
 @import "components/variables.import.less";
 
-// Base
+// Components (components level 1)
 @import "components/reset.import.less";
 @import "components/typography.import.less";
 
@@ -19,15 +20,16 @@
 @import "components/messages.import.less";
 @import "components/alerts.import.less";
 
-// Navigation
 @import "components/breadcrumbs.import.less";
 @import "components/pagination.import.less";
 
-// Helpers
 @import "components/helpers.import.less";
 
-// Customisation
-@import "modules/layout.import.less";
-@import "modules/list.import.less";
-@import "modules/invoice-summary-card.import.less";
-@import "modules/invoice-details-card.import.less";
+@import "layouts/layout.import.less"; // Layout
+
+// App-wide components (components level 2)
+@import "components2/list-single-lines.import.less";
+@import "components2/list-four-corners.import.less";
+
+// Modules (combination of components to serve a module's purpose)
+@import "modules/invoices/invoicesForm.import.less";

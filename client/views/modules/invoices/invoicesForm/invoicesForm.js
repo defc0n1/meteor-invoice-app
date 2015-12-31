@@ -1,10 +1,22 @@
+AutoForm.addHooks(['invoicesInsertForm'], {
+    onSuccess: function(operation, result, template) {
+        Router.go("/invoices");
+    },
+    onError: function(operation, result, template) {
+        console.log('Error');
+    }
+});
+
+AutoForm.addHooks(['invoicesUpdateForm'], {
+    onSuccess: function(operation, result, template) {
+        Router.go("/invoices");
+    },
+    onError: function(operation, result, template) {
+        console.log('Error');
+    }
+});
+
 Template.invoicesForm.events({
-  "click a.save": function(event, template) {
-    $('invoicesUpdateForm').submit();
-  },
-  "click a.delete": function(event, template) {
-    Session.set('FORM_ACTION', '');
-  },
   "blur input.quantity": updateLineItemTotal,
   "blur input.unit-price": updateLineItemTotal
 });

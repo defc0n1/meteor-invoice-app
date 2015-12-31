@@ -1,0 +1,60 @@
+ul.list-four-corners {
+  li {
+    // deco
+    list-style-type: none;
+    margin: 0 0 0 15px;
+    border-bottom: 1px solid #e7e7e7;
+    box-shadow: 0px 1px 0px #ffffff;
+    font-size: 17px;
+
+    > article {
+      min-height: 65px;
+      display: block;
+      color: inherit;
+      padding: 13px 0;
+
+      &:hover, &:focus, &:active {
+        color: inherit;
+        cursor: default;
+      }
+
+      &:after {
+        clear: both;
+        content: "";
+        display: block;
+      }
+
+      .top-left {
+        font-weight: 600;
+      }
+      .top-right {
+        float: right;
+        padding: 0 10px 0 0;
+      }
+      .bottom-left {
+        color: #B5A8A8;
+        font-size: 0.8em;
+      }
+      .bottom-right {
+        float: right;
+        padding: 0 10px 0 0;
+        color: @color-link;
+        font-size: 0.8em;
+      }
+    }
+
+    &.selected {
+      background-color: #d8eefa;
+      color: #333;
+      margin-top: -1px;
+      margin-left: 0;
+      box-shadow: none;
+      border-top: 1px solid #b6def5;
+      border-bottom: 1px solid #b6def5;
+
+      > article {
+        padding: 13px 0 13px 15px;
+      }
+    }
+  }
+}
