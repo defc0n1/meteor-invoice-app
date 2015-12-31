@@ -7,12 +7,16 @@
           HoaDonBC
         </section>
         <ul class="list-single-lines">
-          <li class="{{ isActiveRoute regex='home' }}"><a href="{{ pathFor 'home' }}">{{_ "Dashboard"}}</a></li>
-          <li class="{{ isActiveRoute regex='companies' }}"><a href="{{ pathFor 'companies' }}">{{_ "Companies" }}</a></li>
           <li class="{{ isActiveRoute regex='invoices' }}"><a href="{{ pathFor 'invoices' }}">{{_ "Invoices" }}</a></li>
+          <li class="{{ isActiveRoute regex='companies' }}"><a href="{{ pathFor 'companies' }}">{{_ "Companies" }}</a></li>
         </ul>
         <section id="SettingsBar">
-          {{> yield "SettingsBar"}}
+          <nav>
+            <a href="#"><i class="fa fa-cog"></i></a>
+            {{#if addNewUrl }}
+              <a class="right" href="{{ addNewUrl }}"><i class="fa fa-plus"></i></a>
+            {{/if}}
+          </nav>
         </section>
       </div>
 
