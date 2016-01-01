@@ -7,10 +7,15 @@ ul.list-four-corners {
     box-shadow: 0px 1px 0px #ffffff;
     font-size: 17px;
 
-    > article {
+    a {
+      color: @color-body;
+      display: block;
+    }
+
+    article {
       min-height: 65px;
       display: block;
-      color: inherit;
+      color: @color-body;
       padding: 13px 0;
 
       &:hover, &:focus, &:active {
@@ -52,7 +57,7 @@ ul.list-four-corners {
       border-top: 1px solid #b6def5;
       border-bottom: 1px solid #b6def5;
 
-      > article {
+      article {
         padding: 13px 0 13px 15px;
       }
     }

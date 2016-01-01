@@ -1,10 +1,56 @@
-body {
-  background: white;
+// Print-preview page
 
-  #LeftCol,
-  #MidCol,
-  #TopBar,
-  #BottomBar {
-    display: none;
+.print-wrapper {
+  background: rgb(204,204,204);
+
+  page[size="A4"] {
+    background: white;
+    width: 210mm;
+    height: 297mm;
+    display: block;
+    margin-right: 30px;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    font-size: 12pt;
+    padding: 10mm;
+
+    float: right;
+  }
+
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+article.print-settings-form {
+  height: 200px;
+  width: 400px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #EFEFEF;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #CCC;
+}
+
+// Print media
+
+@media print {
+  @page
+  {
+    size: auto;   /* auto is the current printer page size */
+    margin: 0mm;  /* this affects the margin in the printer settings */
+  }
+
+  body {
+    background: rgb(204, 204, 204);
+    margin: 0;
+  }
+
+  body, page[size="A4"] {
+    margin: 0;
+    box-shadow: 0;
+    padding: 0;
   }
 }

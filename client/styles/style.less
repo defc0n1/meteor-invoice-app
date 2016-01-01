@@ -5,27 +5,27 @@
 @import "components/mixins.import.less";
 @import "components/variables.import.less";
 
+// Components (components level 1)
+@import "components/typography.import.less";
+
+@import "components/grid.import.less";
+@import "components/blocks.import.less";
+
+@import "components/tables.import.less";
+@import "components/forms.import.less";
+
+@import "components/buttons.import.less";
+@import "components/labels.import.less";
+
+@import "components/messages.import.less";
+@import "components/alerts.import.less";
+
+@import "components/breadcrumbs.import.less";
+@import "components/pagination.import.less";
+
+@import "components/helpers.import.less";
+
 @media screen {
-  // Components (components level 1)
-  @import "components/typography.import.less";
-
-  @import "components/grid.import.less";
-  @import "components/blocks.import.less";
-
-  @import "components/tables.import.less";
-  @import "components/forms.import.less";
-
-  @import "components/buttons.import.less";
-  @import "components/labels.import.less";
-
-  @import "components/messages.import.less";
-  @import "components/alerts.import.less";
-
-  @import "components/breadcrumbs.import.less";
-  @import "components/pagination.import.less";
-
-  @import "components/helpers.import.less";
-
   @import "layouts/app.layout.import.less"; // Layout
   // App-wide components (components level 2)
   @import "components2/list-single-lines.import.less";
@@ -37,9 +37,7 @@
   @import "modules/invoices/invoicesForm.import.less";
 }
 
-@media print {
-  @import "layouts/print.layout.import.less";
+@import "layouts/print.layout.import.less";
 
-  // Modules (combination of components to serve a module's purpose)
-  @import "modules/invoices/invoicesForm.print.import.less";
-}
+// Modules (combination of components to serve a module's purpose)
+@import "modules/invoices/invoicesForm.print.import.less";

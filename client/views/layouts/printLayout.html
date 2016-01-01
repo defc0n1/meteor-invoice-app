@@ -1,7 +1,11 @@
 <template name="printLayout">
     <section class="print-wrapper">
-        <section id="PrintContent">
+        <article class="print-settings-form">
+
+        </article>
+
+        <page size="A4">
             {{> yield }}
-        </section>
+        </page>
     </section>
 </template>
