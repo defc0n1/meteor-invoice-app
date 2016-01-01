@@ -1,7 +1,7 @@
 <template name="login">
 
-  <article class="login-form">
-      <form id="LoginForm">
+  <article class="central-form">
+      <form id="LoginForm" class="forms">
         {{#if errorMessages}}
           <ul class="list-errors">
             {{#each errorMessages}}
@@ -10,15 +10,17 @@
           </ul>
         {{/if}}
 
-        <div class="{{errorClass 'email'}}">
-          <input type="email" name="email" placeholder="{{_ 'email'}}" />
-        </div>
+        <section>
+          <label>Email</label>
+          <input type="email" name="email" placeholder="{{_ 'Email'}}" />
+        </section>
 
-        <div class="{{errorClass 'password'}}">
-          <input type="password" name="password" placeholder="{{_ 'password'}}" />
-        </div>
+        <section>
+          <label>Password</label>
+          <input type="password" name="password" placeholder="{{_ 'Password'}}" />
+        </section>
 
-        <button class="btn btn-positive btn-block">{{_ 'login'}}</button>
+        <button type="primary">{{_ 'Login'}}</button>
       </form>
   </article>
 
