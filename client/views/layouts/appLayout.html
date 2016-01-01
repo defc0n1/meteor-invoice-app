@@ -12,7 +12,16 @@
         </ul>
         <section id="SettingsBar">
           <nav>
-            <a href="#"><i class="fa fa-cog"></i></a>
+            <a class="settingsMenu">
+              <i class="fa fa-cog"></i>
+            </a>
+
+            <menu class="menu-pull-up {{ settingsMenuStatus }}">
+              <a href="">{{_ "Settings..." }}</a>
+              <div class="division"></div>
+              <a class="logout">{{_ "Logout" }}</a>
+            </menu>
+
             {{#if addNewUrl }}
               <a class="right" href="{{ addNewUrl }}"><i class="fa fa-plus"></i></a>
             {{/if}}

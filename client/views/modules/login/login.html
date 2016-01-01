@@ -3,11 +3,9 @@
   <article class="central-form">
       <form id="LoginForm" class="forms">
         {{#if errorMessages}}
-          <ul class="list-errors">
-            {{#each errorMessages}}
-              <li class="list-item">{{this}}</li>
-            {{/each}}
-          </ul>
+          {{#each errorMessages}}
+            <div class="alert alert-error">{{this}}</div>
+          {{/each}}
         {{/if}}
 
         <section>
@@ -20,7 +18,7 @@
           <input type="password" name="password" placeholder="{{_ 'Password'}}" />
         </section>
 
-        <button type="primary">{{_ 'Login'}}</button>
+        <button type="primary" outline>{{_ 'Login'}}</button>
       </form>
   </article>
 
