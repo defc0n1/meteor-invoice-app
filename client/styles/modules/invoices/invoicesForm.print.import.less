@@ -1,0 +1,83 @@
+article.invoices-form {
+  line-height: 1.5;
+
+  fieldset {
+    .field {
+      margin-bottom: 2px;
+
+      &:after {
+        clear: both;
+        content: " ";
+        display: block;
+      }
+    }
+
+    label {
+      float: left;
+      width: 200px;
+      font-weight: 600;
+      padding-right: 20px;
+      color: grey;
+      font-size: 90%;
+      line-height: 1.75;
+      margin-left: 40px;
+    }
+
+    div.value {
+      float: left;
+      width: 559px;
+    }
+  }
+
+  table.invoice-line-items {
+    td {
+      text-align: right;
+      line-height: @base-line-big;
+      border-bottom: none;
+
+      > input {
+        text-align: right;
+      }
+    }
+
+    td[class$='name'] {
+      text-align: left;
+      width: 350px;
+
+      > input {
+        text-align: left;
+      }
+    }
+
+    td[class$='actions'] {
+      width: 40px;
+      text-align: right;
+    }
+
+    td[class$='add-line-item'] {
+      padding-top: 40px;
+      text-align: left;
+    }
+
+    > tfoot td {
+      color: @color-body;
+      text-align: right;
+      font-weight: 600;
+    }
+
+    > tfoot td.tfoot-label {
+      padding-right: 20px;
+      color: grey;
+    }
+
+    a.autoform-remove-item,
+    a.autoform-add-item {
+      font-size: 17px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    a.autoform-remove-item {
+      color: @color-error;
+    }
+  }
+}
