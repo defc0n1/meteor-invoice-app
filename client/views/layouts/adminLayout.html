@@ -1,16 +1,14 @@
-<template name="appLayout">
+<template name="adminLayout">
 
   <section class="app-wrapper">
 
       <div id="LeftCol">
         <section id="AppName">
-          HoaDonBC
+          {{_ "Administration" }}
         </section>
         <ul class="list-single-lines">
-          <li class="{{ isActiveRoute regex='invoices' }}"><a href="{{ pathFor 'invoices' }}">{{_ "Invoices" }}</a></li>
-          <li><a href="#" disabled>{{_ "Customers" }}</a></li>
-          <li><a href="#" disabled>{{_ "Inventory" }}</a></li>
-          <li><a href="#" disabled>{{_ "Reports" }}</a></li>
+          <li class="{{ isActiveRoute regex='companies' }}"><a href="{{ pathFor 'companies' }}">{{_ "Companies" }}</a></li>
+          <li><a href="#">{{_ "Users" }}</a></li>
         </ul>
         <section id="SettingsBar">
           <nav>

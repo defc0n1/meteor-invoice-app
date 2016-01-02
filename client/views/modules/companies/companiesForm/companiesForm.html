@@ -1,0 +1,80 @@
+<template name="companiesForm">
+
+  <section id="TopBar">
+    <nav>
+      <a href="{{pathFor route='admin.companies' }}" class="cancel">Cancel</a>
+    </nav>
+  </section>
+
+  <article class="right-col-form">
+  {{#autoForm id=formId type=formType collection="Companies" doc=item }}
+
+    <fieldset>
+      <div class="field {{#if afFieldIsInvalid name='name'}}has-error{{/if}}">
+        <label>{{_ 'Company Name'}}</label>
+        <div class="value">
+          {{> afFieldInput name='name'}}
+          {{#if afFieldIsInvalid name='name'}}
+          <span class="help-block">{{{afFieldMessage name='name'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Tax Number'}}</label>
+        <div class="value">
+          {{> afFieldInput name='taxNumber'}}
+          {{#if afFieldIsInvalid name='taxNumber'}}
+          <span class="help-block">{{{afFieldMessage name='taxNumber'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="field {{#if afFieldIsInvalid name='address'}}has-error{{/if}}">
+        <label>{{_ 'Address'}}</label>
+        <div class="value">
+          {{> afFieldInput name='address'}}
+          {{#if afFieldIsInvalid name='address'}}
+          <span class="help-block">{{{afFieldMessage name='address'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='phone'}}has-error{{/if}}">
+        <label>{{_ 'Phone'}}</label>
+        <div class="value">
+          {{> afFieldInput name='phone'}}
+          {{#if afFieldIsInvalid name='phone'}}
+          <span class="help-block">{{{afFieldMessage name='phone'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='fax'}}has-error{{/if}}">
+        <label>{{_ 'Fax'}}</label>
+        <div class="value">
+          {{> afFieldInput name='fax'}}
+          {{#if afFieldIsInvalid name='fax'}}
+          <span class="help-block">{{{afFieldMessage name='fax'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='Email'}}has-error{{/if}}">
+        <label>{{_ 'Email'}}</label>
+        <div class="value">
+          {{> afFieldInput name='email'}}
+          {{#if afFieldIsInvalid name='email'}}
+          <span class="help-block">{{{afFieldMessage name='email'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+    </fieldset>
+
+    <section id="BottomBar">
+      <nav>
+        <button type="submit" class="save">Done</button>
+      </nav>
+    </section>
+
+    {{/autoForm}}
+  </article>
+</template>

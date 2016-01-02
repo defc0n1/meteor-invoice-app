@@ -1,0 +1,42 @@
+<template name="companiesView">
+
+  {{#with item}}
+  <section id="TopBar">
+    <nav>
+      <a href="{{pathFor route='admin.companies.edit' }}">Update</a>
+    </nav>
+  </section>
+
+  <article class="right-col-form">
+    <fieldset>
+      <div class="field">
+        <label>{{_ 'Company Name'}}</label>
+        <div class="value">{{ name }}</div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Tax Number'}}</label>
+        <div class="value">{{ taxNumber }}</div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="field">
+        <label>{{_ 'Address'}}</label>
+        <div class="value">{{ address }}</div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Phone'}}</label>
+        <div class="value">{{ phone }}</div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Fax'}}</label>
+        <div class="value">{{ fax }}</div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Email'}}</label>
+        <div class="value">{{ email }}</div>
+      </div>
+    </fieldset>
+  </article>
+  {{/with}}
+</template>
