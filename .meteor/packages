@@ -28,3 +28,4 @@ tap:i18n
 zimme:iron-router-active
 fortawesome:fontawesome
 underscore
+momentjs:moment

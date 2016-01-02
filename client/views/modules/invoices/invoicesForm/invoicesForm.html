@@ -10,21 +10,30 @@
   {{#autoForm id=formId type=formType collection="Invoices" doc=item }}
 
     <fieldset>
+      <div class="field {{#if afFieldIsInvalid name='ownedByCompanyId'}}has-error{{/if}}">
+        <label>{{_ 'Company'}}</label>
+        <div class="value">
+          {{> afFieldInput name='ownedByCompanyId'}}
+          {{#if afFieldIsInvalid name='ownedByCompanyId'}}
+          <span class="error">{{{afFieldMessage name='ownedByCompanyId'}}}</span>
+          {{/if}}
+        </div>
+      </div>
       <div class="field {{#if afFieldIsInvalid name='invoiceNumber'}}has-error{{/if}}">
         <label>{{_ 'Invoice Number'}}</label>
         <div class="value">
           {{> afFieldInput name='invoiceNumber'}}
           {{#if afFieldIsInvalid name='invoiceNumber'}}
-          <span class="help-block">{{{afFieldMessage name='invoiceNumber'}}}</span>
+          <span class="error">{{{afFieldMessage name='invoiceNumber'}}}</span>
           {{/if}}
         </div>
       </div>
       <div class="field">
         <label>{{_ 'Invoice Date'}}</label>
         <div class="value">
-          {{> afFieldInput name='invoiceNumber'}}
-          {{#if afFieldIsInvalid name='invoiceNumber'}}
-          <span class="help-block">{{{afFieldMessage name='invoiceNumber'}}}</span>
+          {{> afFieldInput name='dateIssued'}}
+          {{#if afFieldIsInvalid name='dateIssued'}}
+          <span class="error">{{{afFieldMessage name='dateIssued'}}}</span>
           {{/if}}
         </div>
       </div>
@@ -36,7 +45,7 @@
         <div class="value">
           {{> afFieldInput name='customer.name'}}
           {{#if afFieldIsInvalid name='customer.name'}}
-          <span class="help-block">{{{afFieldMessage name='customer.name'}}}</span>
+          <span class="error">{{{afFieldMessage name='customer.name'}}}</span>
           {{/if}}
         </div>
       </div>
@@ -45,7 +54,7 @@
         <div class="value">
           {{> afFieldInput name='customer.company'}}
           {{#if afFieldIsInvalid name='customer.company'}}
-          <span class="help-block">{{{afFieldMessage name='customer.company'}}}</span>
+          <span class="error">{{{afFieldMessage name='customer.company'}}}</span>
           {{/if}}
         </div>
       </div>
@@ -54,7 +63,7 @@
         <div class="value">
           {{> afFieldInput name='customer.taxNumber'}}
           {{#if afFieldIsInvalid name='customer.taxNumber'}}
-          <span class="help-block">{{{afFieldMessage name='customer.taxNumber'}}}</span>
+          <span class="error">{{{afFieldMessage name='customer.taxNumber'}}}</span>
           {{/if}}
         </div>
       </div>
@@ -63,7 +72,7 @@
         <div class="value">
           {{> afFieldInput name='customer.address'}}
           {{#if afFieldIsInvalid name='customer.address'}}
-          <span class="help-block">{{{afFieldMessage name='customer.address'}}}</span>
+          <span class="error">{{{afFieldMessage name='customer.address'}}}</span>
           {{/if}}
         </div>
       </div>

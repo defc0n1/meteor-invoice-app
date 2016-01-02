@@ -11,12 +11,16 @@
     <article class="invoices-form">
       <fieldset>
         <div class="field">
+          <label>{{_ 'Company'}}</label>
+          <div class="value">{{ company.name }}</div>
+        </div>
+        <div class="field">
           <label>{{_ 'Invoice Number'}}</label>
           <div class="value">{{ invoiceNumber }}</div>
         </div>
         <div class="field">
           <label>{{_ 'Invoice Date'}}</label>
-          <div class="value">15/10/2015</div>
+          <div class="value">{{formatDate dateIssued }}</div>
         </div>
       </fieldset>
 
