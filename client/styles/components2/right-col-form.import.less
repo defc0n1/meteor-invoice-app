@@ -1,6 +1,10 @@
 article.right-col-form {
   line-height: 1.5;
 
+  input[type="date"] {
+    height: 27px;
+  }
+
   fieldset {
     .field {
       margin-bottom: 2px;
@@ -26,6 +30,12 @@ article.right-col-form {
     div.value {
       float: left;
       width: 559px;
+
+      > span {
+        display: block;
+        border: 1px solid white;
+        padding: @padding-input;
+      }
     }
   }
 }

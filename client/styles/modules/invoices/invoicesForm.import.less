@@ -1,5 +1,4 @@
 article.invoices-form {
-  &:extend(.right-col-form);
 
   table.invoice-line-items {
     td {
@@ -9,6 +8,12 @@ article.invoices-form {
 
       > input {
         text-align: right;
+      }
+
+      > span {
+        border: 1px solid white;
+        display: block;
+        padding: @padding-input;
       }
     }
 

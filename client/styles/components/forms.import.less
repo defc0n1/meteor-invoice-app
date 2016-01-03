@@ -11,6 +11,7 @@ input[type="email"],
 input[type="number"],
 input[type="search"],
 input[type="text"],
+input[type="date"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
@@ -37,6 +38,7 @@ input[type="email"],
 input[type="number"],
 input[type="search"],
 input[type="text"],
+input[type="date"],
 input[type="tel"],
 input[type="url"],
 input[type="password"] {
@@ -45,7 +47,6 @@ input[type="password"] {
 select[multiple],
 textarea {
 	height: auto;
-	line-height: 1.5;
 }
 textarea {
 	font-size: @font-size + 0px;
@@ -66,9 +67,6 @@ fieldset {
 	margin-bottom: 0;
 	border-bottom: @fieldset-border-size solid @color-fieldset-border;
 	border-radius: @global-radius;
-	& *:last-child {
-		margin-bottom: 0 !important;
-	}
 }
 legend {
 	font-weight: 500;
@@ -96,6 +94,7 @@ legend {
 	& input[type="number"],
 	& input[type="search"],
 	& input[type="text"],
+	& input[type="date"],
 	& input[type="tel"],
 	& input[type="url"],
 	& input[type="password"] {
@@ -161,6 +160,7 @@ legend {
 		& input[type="number"],
 		& input[type="search"],
 		& input[type="text"],
+		& input[type="date"],
 		& input[type="tel"],
 		& input[type="url"],
 		& input[type="password"],

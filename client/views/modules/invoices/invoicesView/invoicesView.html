@@ -8,38 +8,38 @@
       </nav>
     </section>
 
-    <article class="invoices-form">
+    <article class="right-col-form invoices-form">
       <fieldset>
         <div class="field">
           <label>{{_ 'Company'}}</label>
-          <div class="value">{{ company.name }}</div>
+          <div class="value"><span>{{ company.name }}</span></div>
         </div>
         <div class="field">
           <label>{{_ 'Invoice Number'}}</label>
-          <div class="value">{{ invoiceNumber }}</div>
+          <div class="value"><span>{{ invoiceNumber }}</span></div>
         </div>
         <div class="field">
           <label>{{_ 'Invoice Date'}}</label>
-          <div class="value">{{formatDate dateIssued }}</div>
+          <div class="value"><span>{{formatDate dateIssued }}</span></div>
         </div>
       </fieldset>
 
       <fieldset>
         <div class="field">
           <label>{{_ 'Customer Name'}}</label>
-          <div class="value">{{ customer.name }}</div>
+          <div class="value"><span>{{ customer.name }}</span></div>
         </div>
         <div class="field">
           <label>{{_ 'Customer Company'}}</label>
-          <div class="value">{{ customer.company }}</div>
+          <div class="value"><span>{{ customer.company }}</span></div>
         </div>
         <div class="field">
           <label>{{_ 'Customer Tax No.'}}</label>
-          <div class="value">{{ customer.taxNumber }}</div>
+          <div class="value"><span>{{ customer.taxNumber }}</span></div>
         </div>
         <div class="field">
           <label>{{_ 'Customer Address'}}</label>
-          <div class="value">{{ customer.address }}</div>
+          <div class="value"><span>{{ customer.address }}</span></div>
         </div>
       </fieldset>
 
@@ -59,10 +59,10 @@
           {{#each orderedItems}}
           <tr>
             <td class="orderedItem.actions"></td>
-            <td class="orderedItems.name">{{ this.name }}</td>
-            <td>{{ this.unitPrice }}</td>
-            <td>{{ this.quantity }}</td>
-            <td>{{ this.totalPrice }}</td>
+            <td class="orderedItems.name"><span>{{ this.name }}</span></td>
+            <td><span>{{ this.unitPrice }}</span></td>
+            <td><span>{{ this.quantity }}</span></td>
+            <td><span>{{ this.totalPrice }}</span></td>
           </tr>
           {{/each}}
 
@@ -72,21 +72,21 @@
             <td></td>
             <td></td>
             <td class="tfoot-label">Subtotal</td>
-            <td>{{ total.beforeGST }}</td>
+            <td><span>{{ total.beforeGST }}</span></td>
           </tr>
           <tr>
             <td class="orderedItem.actions"></td>
             <td></td>
             <td></td>
             <td class="tfoot-label">GST</td>
-            <td>{{ total.GST }}</td>
+            <td><span>{{ total.GST }}</span></td>
           </tr>
           <tr>
             <td class="orderedItem.actions"></td>
             <td></td>
             <td></td>
             <td class="tfoot-label">Total</td>
-            <td>{{ total.afterGST }}</td>
+            <td><span>{{ total.afterGST }}</span></td>
           </tr>
           </tfoot>
         </table>
