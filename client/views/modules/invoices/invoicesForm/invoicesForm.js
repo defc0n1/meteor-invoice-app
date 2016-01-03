@@ -1,4 +1,4 @@
-AutoForm.addHooks(['invoicesInsertForm'], {
+AutoForm.addHooks(['InvoicesInsertForm'], {
     onSuccess: function(operation, result, template) {
         Router.go("/invoices");
     },
@@ -7,7 +7,7 @@ AutoForm.addHooks(['invoicesInsertForm'], {
     }
 });
 
-AutoForm.addHooks(['invoicesUpdateForm'], {
+AutoForm.addHooks(['InvoicesUpdateForm'], {
     onSuccess: function(operation, result, template) {
         Router.go("/invoices");
     },

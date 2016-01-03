@@ -4,10 +4,10 @@
 
       <div id="LeftCol">
         <section id="AppName">
-          {{_ "Administration" }}
+          <a href="/"><i class="fa fa-chevron-left"></i></a> {{_ "Administration" }}
         </section>
         <ul class="list-single-lines">
-          <li class="{{ isActiveRoute regex='companies' }}"><a href="{{ pathFor 'companies' }}">{{_ "Companies" }}</a></li>
+          <li class="{{ isActiveRoute regex='companies' }}"><a href="{{ pathFor 'admin.companies' }}">{{_ "Companies" }}</a></li>
           <li><a href="#">{{_ "Users" }}</a></li>
         </ul>
         <section id="SettingsBar">

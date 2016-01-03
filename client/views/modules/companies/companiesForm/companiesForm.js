@@ -1,4 +1,4 @@
-AutoForm.addHooks(['companiesInsertForm'], {
+AutoForm.addHooks(['CompaniesInsertForm'], {
     onSuccess: function(operation, result, template) {
         Router.go("admin.companies");
     },
@@ -7,7 +7,7 @@ AutoForm.addHooks(['companiesInsertForm'], {
     }
 });
 
-AutoForm.addHooks(['companiesUpdateForm'], {
+AutoForm.addHooks(['CompaniesUpdateForm'], {
     onSuccess: function(operation, result, template) {
         Router.go("admin.companies");
     },
