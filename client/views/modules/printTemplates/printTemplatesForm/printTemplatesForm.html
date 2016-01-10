@@ -1,0 +1,148 @@
+<template name="printTemplatesForm">
+
+  <section id="TopBar">
+    <nav>
+      <a href="{{pathFor route='invoices' }}" class="cancel">Cancel</a>
+    </nav>
+  </section>
+
+  <article class="right-col-form invoices-form">
+  {{#autoForm id=formId type=formType collection="PrintTemplates" doc=item }}
+
+    <fieldset>
+      <div class="field {{#if afFieldIsInvalid name='ownedByCompanyId'}}has-error{{/if}}">
+        <label>{{_ 'Company'}}</label>
+        <div class="value">
+          {{> afFieldInput name='ownedByCompanyId'}}
+          {{#if afFieldIsInvalid name='ownedByCompanyId'}}
+          <span class="error">{{{afFieldMessage name='ownedByCompanyId'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='collection'}}has-error{{/if}}">
+        <label>{{_ 'Collection Name'}}</label>
+        <div class="value">
+          {{> afFieldInput name='collection'}}
+          {{#if afFieldIsInvalid name='collection'}}
+          <span class="error">{{{afFieldMessage name='collection'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Name'}}</label>
+        <div class="value">
+          {{> afFieldInput name='name'}}
+          {{#if afFieldIsInvalid name='name'}}
+          <span class="error">{{{afFieldMessage name='name'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="field {{#if afFieldIsInvalid name='pageSizeX'}}has-error{{/if}}">
+        <label>{{_ 'Page Size X'}}</label>
+        <div class="value">
+          {{> afFieldInput name='pageSizeX'}}
+          {{#if afFieldIsInvalid name='pageSizeX'}}
+          <span class="error">{{{afFieldMessage name='pageSizeX'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='pageSizeY'}}has-error{{/if}}">
+        <label>{{_ 'Page Size Y'}}</label>
+        <div class="value">
+          {{> afFieldInput name='pageSizeY'}}
+          {{#if afFieldIsInvalid name='pageSizeY'}}
+          <span class="error">{{{afFieldMessage name='pageSizeY'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='pageMarginTop'}}has-error{{/if}}">
+        <label>{{_ 'Page Margin Top'}}</label>
+        <div class="value">
+          {{> afFieldInput name='pageMarginTop'}}
+          {{#if afFieldIsInvalid name='pageMarginTop'}}
+          <span class="error">{{{afFieldMessage name='pageMarginTop'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='pageMarginBottom'}}has-error{{/if}}">
+        <label>{{_ 'Page Margin Bottom'}}</label>
+        <div class="value">
+          {{> afFieldInput name='pageMarginBottom'}}
+          {{#if afFieldIsInvalid name='pageMarginBottom'}}
+          <span class="error">{{{afFieldMessage name='pageMarginBottom'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='pageMarginLeft'}}has-error{{/if}}">
+        <label>{{_ 'Page Margin Left'}}</label>
+        <div class="value">
+          {{> afFieldInput name='pageMarginLeft'}}
+          {{#if afFieldIsInvalid name='pageMarginLeft'}}
+          <span class="error">{{{afFieldMessage name='pageMarginLeft'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='pageMarginRight'}}has-error{{/if}}">
+        <label>{{_ 'Page Margin Right'}}</label>
+        <div class="value">
+          {{> afFieldInput name='pageMarginRight'}}
+          {{#if afFieldIsInvalid name='pageMarginRight'}}
+          <span class="error">{{{afFieldMessage name='pageMarginRight'}}}</span>
+          {{/if}}
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <table class="invoice-line-items">
+        <thead>
+          <tr>
+            <td class="orderedItem.actions"></td>
+            <td class="orderedItem.name">{{_ 'Field Name'}}</td>
+            <td>{{_ 'Label Top'}}</td>
+            <td>{{_ 'Label Right'}}</td>
+            <td>{{_ 'Label Bottom'}}</td>
+            <td>{{_ 'Label Left'}}</td>
+          </tr>
+        </thead>
+
+        {{> afQuickField name='orderedItems' template='tableRow'}}
+
+        <tfoot>
+          <tr>
+            <td class="orderedItem.actions"></td>
+            <td></td>
+            <td></td>
+            <td class="tfoot-label">Subtotal</td>
+            <td>{{> afFieldInput name='total.beforeGST' class="invoice-subtotal" }}</td>
+          </tr>
+          <tr>
+            <td class="orderedItem.actions"></td>
+            <td></td>
+            <td></td>
+            <td class="tfoot-label">GST</td>
+            <td>{{> afFieldInput name='total.GST' class="invoice-GST" }}</td>
+          </tr>
+          <tr>
+            <td class="orderedItem.actions"></td>
+            <td></td>
+            <td></td>
+            <td class="tfoot-label">Total</td>
+            <td>{{> afFieldInput name='total.afterGST' class="invoice-total-after-GST" }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </fieldset>
+
+    <section id="BottomBar">
+      <nav>
+        <button type="submit" class="save">Done</button>
+      </nav>
+    </section>
+
+    {{/autoForm}}
+  </article>
+</template>

@@ -9,6 +9,7 @@
         <ul class="list-single-lines">
           <li class="{{ isActiveRoute regex='companies' }}"><a href="{{ pathFor 'admin.companies' }}">{{_ "Companies" }}</a></li>
           <li><a href="#">{{_ "Users" }}</a></li>
+          <li class="{{ isActiveRoute regex='print-templates' }}"><a href="{{ pathFor 'admin.printTemplates' }}">{{_ "Print Templates" }}</a></li>
         </ul>
         <section id="SettingsBar">
           <nav>
