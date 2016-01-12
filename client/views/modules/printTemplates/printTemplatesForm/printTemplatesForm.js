@@ -1,6 +1,6 @@
 AutoForm.addHooks(['PrintTemplatesInsertForm'], {
     onSuccess: function(operation, result, template) {
-        Router.go("/printTemplates");
+        Router.go("admin.printTemplates");
     },
     onError: function(operation, result, template) {
         console.log('Error');
@@ -9,7 +9,7 @@ AutoForm.addHooks(['PrintTemplatesInsertForm'], {
 
 AutoForm.addHooks(['PrintTemplatesUpdateForm'], {
     onSuccess: function(operation, result, template) {
-        Router.go("/printTemplates");
+        Router.go("admin.printTemplates");
     },
     onError: function(operation, result, template) {
         console.log('Error');

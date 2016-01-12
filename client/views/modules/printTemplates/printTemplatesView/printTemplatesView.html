@@ -10,32 +10,96 @@
   <article class="right-col-form">
     <fieldset>
       <div class="field">
-        <label>{{_ 'Company Name'}}</label>
-        <div class="value"><span>{{ name }}</span></div>
+        <label>{{_ 'Company'}}</label>
+        <div class="value"><span>{{getCompanyName ownedByCompanyId}}</span></div>
       </div>
       <div class="field">
-        <label>{{_ 'Tax Number'}}</label>
-        <div class="value"><span>{{ taxNumber }}</span></div>
+        <label>{{_ 'Collection Name'}}</label>
+        <div class="value">
+          <span>{{ collection }}</span>
+        </div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Template Name'}}</label>
+        <div class="value">
+          <span>{{ name }}</span>
+        </div>
       </div>
     </fieldset>
 
     <fieldset>
       <div class="field">
-        <label>{{_ 'Address'}}</label>
-        <div class="value"><span>{{ address }}</span></div>
+        <label>{{_ 'Page Size X'}} ({{_ 'mm' }})</label>
+        <div class="value">
+          <span>{{ pageSizeX }}</span>
+        </div>
       </div>
       <div class="field">
-        <label>{{_ 'Phone'}}</label>
-        <div class="value"><span>{{ phone }}</span></div>
+        <label>{{_ 'Page Size Y'}} ({{_ 'mm' }})</label>
+        <div class="value">
+          <span>{{ pageSizeY }}</span>
+        </div>
       </div>
       <div class="field">
-        <label>{{_ 'Fax'}}</label>
-        <div class="value"><span>{{ fax }}</span></div>
+        <label>{{_ 'Margin Top'}} ({{_ 'mm' }})</label>
+        <div class="value">
+          <span>{{ pageMarginTop }}</span>
+        </div>
       </div>
       <div class="field">
-        <label>{{_ 'Email'}}</label>
-        <div class="value"><span>{{ email }}</span></div>
+        <label>{{_ 'Margin Bottom'}} ({{_ 'mm' }})</label>
+        <div class="value">
+          <span>{{ pageMarginBottom }}</span>
+        </div>
       </div>
+      <div class="field">
+        <label>{{_ 'Margin Left'}} ({{_ 'mm' }})</label>
+        <div class="value">
+          <span>{{ pageMarginLeft }}</span>
+        </div>
+      </div>
+      <div class="field">
+        <label>{{_ 'Margin Right'}} ({{_ 'mm' }})</label>
+        <div class="value">
+          <span>{{ pageMarginRight }}</span>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <table class="invoice-line-items">
+
+        <thead>
+        <tr>
+          <td class="orderedItem.actions"></td>
+          <td class="orderedItem.name">{{_ 'Field Name'}}</td>
+          <td>{{_ 'LT'}}</td>
+          <td>{{_ 'LR'}}</td>
+          <td>{{_ 'LB'}}</td>
+          <td>{{_ 'LL'}}</td>
+          <td>{{_ 'VT'}}</td>
+          <td>{{_ 'VR'}}</td>
+          <td>{{_ 'VB'}}</td>
+          <td>{{_ 'VL'}}</td>
+        </tr>
+        </thead>
+
+        {{#each fields}}
+        <tr>
+          <td class="orderedItem.actions"></td>
+          <td class="orderedItems.name"><span>{{ this.name }}</span></td>
+          <td><span>{{ this.labelTop }}</span></td>
+          <td><span>{{ this.labelRight }}</span></td>
+          <td><span>{{ this.labelBottom }}</span></td>
+          <td><span>{{ this.labelLeft }}</span></td>
+          <td><span>{{ this.valueTop }}</span></td>
+          <td><span>{{ this.valueRight }}</span></td>
+          <td><span>{{ this.valueBottom }}</span></td>
+          <td><span>{{ this.valueLeft }}</span></td>
+        </tr>
+        {{/each}}
+      </table>
+
     </fieldset>
   </article>
   {{/with}}

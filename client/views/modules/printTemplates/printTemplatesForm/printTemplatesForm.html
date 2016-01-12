@@ -2,7 +2,7 @@
 
   <section id="TopBar">
     <nav>
-      <a href="{{pathFor route='invoices' }}" class="cancel">Cancel</a>
+      <a href="{{pathFor route='admin.printTemplates' }}" class="cancel">Cancel</a>
     </nav>
   </section>
 
@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="field">
-        <label>{{_ 'Name'}}</label>
+        <label>{{_ 'Template Name'}}</label>
         <div class="value">
           {{> afFieldInput name='name'}}
           {{#if afFieldIsInvalid name='name'}}
@@ -41,7 +41,7 @@
 
     <fieldset>
       <div class="field {{#if afFieldIsInvalid name='pageSizeX'}}has-error{{/if}}">
-        <label>{{_ 'Page Size X'}}</label>
+        <label>{{_ 'Page Size X'}} ({{_ 'mm' }})</label>
         <div class="value">
           {{> afFieldInput name='pageSizeX'}}
           {{#if afFieldIsInvalid name='pageSizeX'}}
@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="field {{#if afFieldIsInvalid name='pageSizeY'}}has-error{{/if}}">
-        <label>{{_ 'Page Size Y'}}</label>
+        <label>{{_ 'Page Size Y'}} ({{_ 'mm' }})</label>
         <div class="value">
           {{> afFieldInput name='pageSizeY'}}
           {{#if afFieldIsInvalid name='pageSizeY'}}
@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="field {{#if afFieldIsInvalid name='pageMarginTop'}}has-error{{/if}}">
-        <label>{{_ 'Page Margin Top'}}</label>
+        <label>{{_ 'Margin Top'}} ({{_ 'mm' }})</label>
         <div class="value">
           {{> afFieldInput name='pageMarginTop'}}
           {{#if afFieldIsInvalid name='pageMarginTop'}}
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="field {{#if afFieldIsInvalid name='pageMarginBottom'}}has-error{{/if}}">
-        <label>{{_ 'Page Margin Bottom'}}</label>
+        <label>{{_ 'Margin Bottom'}} ({{_ 'mm' }})</label>
         <div class="value">
           {{> afFieldInput name='pageMarginBottom'}}
           {{#if afFieldIsInvalid name='pageMarginBottom'}}
@@ -77,7 +77,7 @@
         </div>
       </div>
       <div class="field {{#if afFieldIsInvalid name='pageMarginLeft'}}has-error{{/if}}">
-        <label>{{_ 'Page Margin Left'}}</label>
+        <label>{{_ 'Margin Left'}} ({{_ 'mm' }})</label>
         <div class="value">
           {{> afFieldInput name='pageMarginLeft'}}
           {{#if afFieldIsInvalid name='pageMarginLeft'}}
@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="field {{#if afFieldIsInvalid name='pageMarginRight'}}has-error{{/if}}">
-        <label>{{_ 'Page Margin Right'}}</label>
+        <label>{{_ 'Margin Right'}} ({{_ 'mm' }})</label>
         <div class="value">
           {{> afFieldInput name='pageMarginRight'}}
           {{#if afFieldIsInvalid name='pageMarginRight'}}
@@ -102,38 +102,18 @@
           <tr>
             <td class="orderedItem.actions"></td>
             <td class="orderedItem.name">{{_ 'Field Name'}}</td>
-            <td>{{_ 'Label Top'}}</td>
-            <td>{{_ 'Label Right'}}</td>
-            <td>{{_ 'Label Bottom'}}</td>
-            <td>{{_ 'Label Left'}}</td>
+            <td>{{_ 'LT'}}</td>
+            <td>{{_ 'LR'}}</td>
+            <td>{{_ 'LB'}}</td>
+            <td>{{_ 'LL'}}</td>
+            <td>{{_ 'VT'}}</td>
+            <td>{{_ 'VR'}}</td>
+            <td>{{_ 'VB'}}</td>
+            <td>{{_ 'VL'}}</td>
           </tr>
         </thead>
 
-        {{> afQuickField name='orderedItems' template='tableRow'}}
-
-        <tfoot>
-          <tr>
-            <td class="orderedItem.actions"></td>
-            <td></td>
-            <td></td>
-            <td class="tfoot-label">Subtotal</td>
-            <td>{{> afFieldInput name='total.beforeGST' class="invoice-subtotal" }}</td>
-          </tr>
-          <tr>
-            <td class="orderedItem.actions"></td>
-            <td></td>
-            <td></td>
-            <td class="tfoot-label">GST</td>
-            <td>{{> afFieldInput name='total.GST' class="invoice-GST" }}</td>
-          </tr>
-          <tr>
-            <td class="orderedItem.actions"></td>
-            <td></td>
-            <td></td>
-            <td class="tfoot-label">Total</td>
-            <td>{{> afFieldInput name='total.afterGST' class="invoice-total-after-GST" }}</td>
-          </tr>
-        </tfoot>
+        {{> afQuickField name='fields' template='tableRow'}}
       </table>
     </fieldset>
 
