@@ -1,5 +1,8 @@
 <template name="invoicesPrint">
   {{#with item}}
+  {{#contentFor "PrintSettingsForm" }}
+  {{/contentFor}}
+
   <article class="invoices-form-print">
     <fieldset>
       <div class="field">
