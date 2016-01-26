@@ -21,24 +21,19 @@
 
 .print-wrapper {
   background: rgb(204,204,204);
+  padding: 20px 0;
 
-  page[size="A4"] {
+  #Page {
     background: white;
-    width: 210mm;
-    height: 297mm;
     display: block;
     box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
-    font-size: 12pt;
-    padding: 5mm;
-
-    margin-right: 30px;
-    float: right;
+    font-size: 11pt;
+    margin: 0 auto;
 
     @media print {
-      margin: 0;
+      margin: 0 !important;
       box-shadow: 0;
-      padding: 0;
-      float: none;
+      padding: 0 !important;
     }
   }
 
@@ -47,9 +42,18 @@
     content: "";
     clear: both;
   }
+
+  hr {
+    width: 100%;
+  }
+
+  h1 {
+    margin: 0;
+  }
 }
 
 article.print-settings-form {
+  display: none;
   height: 200px;
   width: 400px;
   position: fixed;

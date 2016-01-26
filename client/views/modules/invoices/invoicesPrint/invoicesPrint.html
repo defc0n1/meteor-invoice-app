@@ -1,94 +1,151 @@
 <template name="invoicesPrint">
-  {{#with item}}
-  <style type="text/css">
-    .key, .value {
-      position: absolute;
-    }
-  </style>
+    {{#with item}}
+    <style type="text/css">
+        .key, .value {
+            position: absolute;
+        }
+    </style>
 
     <article class="print-settings-form">
-      {{ printTemplate.name }}
+        {{ printTemplate.name }}
     </article>
 
-    <page size="A4" style="position:relative;">
-      <article class="invoices-form-print">
+    <div id="Page" style="position:relative;">
+        <article class="invoices-form-print">
 
-          <!--<div class="field">
-            <label>{{_ 'Invoice Number'}}</label>
-            <div class="value">{{ invoiceNumber }}</div>
-          </div>
-          <div class="field">
-            <label>{{_ 'Invoice Date'}}</label>
-            <div class="value">15/10/2015</div>
-          </div>
+            <div id="company_name" class="field">
+                <div class="key"></div>
+                <div class="value">{{ company.name }}</div>
+            </div>
 
-          <div class="field">
-            <label>{{_ 'Customer Name'}}</label>
-            <div class="value">{{ customer.name }}</div>
-          </div>-->
+            <div id="company_taxNumber" class="field">
+                <div class="key">{{_ 'Tax number' }}</div>
+                <div class="value">{{ company.taxNumber }}</div>
+            </div>
 
-          <div id="company_name" class="field">
-            <div class="key">{{_ 'Customer Company'}}</div>
-            <div class="value">{{ customer.company }}</div>
-          </div>
+            <div id="company_address" class="field">
+                <div class="key">{{_ 'Address'}}</div>
+                <div class="value">{{ company.address }}</div>
+            </div>
 
-          <div id="company_taxnumber" class="field">
-            <div class="key">{{_ 'Customer Tax No.'}}</div>
-            <div class="value">{{ customer.taxNumber }}</div>
-          </div>
-          <!--<div class="field">
-            <label>{{_ 'Customer Address'}}</label>
-            <div class="value">{{ customer.address }}</div>
-          </div>-->
+            <div id="company_phone" class="field">
+                <div class="key">{{_ 'Phone'}}</div>
+                <div class="value">{{ company.phone }}</div>
+            </div>
 
-          <!--<table class="invoice-line-items">
+            <div id="company_fax" class="field">
+                <div class="key">{{_ 'Fax'}}</div>
+                <div class="value">{{ company.fax }}</div>
+            </div>
 
-            <thead>
-            <tr>
-              <td class="orderedItem.actions"></td>
-              <td class="orderedItem.name">{{_ 'Product Name'}}</td>
-              <td>{{_ 'Unit Price'}}</td>
-              <td>{{_ 'Quantity'}}</td>
-              <td>{{_ 'Price'}}</td>
-            </tr>
-            </thead>
+            <div id="company_accountNumber" class="field">
+                <div class="key">{{_ 'Account Number'}}</div>
+                <div class="value">..........</div>
+            </div>
 
-            {{#each orderedItems}}
-            <tr>
-              <td class="orderedItem.actions"></td>
-              <td class="orderedItems.name">{{ this.name }}</td>
-              <td>{{ this.unitPrice }}</td>
-              <td>{{ this.quantity }}</td>
-              <td>{{ this.totalPrice }}</td>
-            </tr>
-            {{/each}}
+            <h1 style="position: absolute; top: 35mm; left: 4mm;">{{_ "Invoices" }}</h1>
 
-            <tfoot>
-            <tr>
-              <td class="orderedItem.actions"></td>
-              <td></td>
-              <td></td>
-              <td class="tfoot-label">Subtotal</td>
-              <td>{{ total.beforeGST }}</td>
-            </tr>
-            <tr>
-              <td class="orderedItem.actions"></td>
-              <td></td>
-              <td></td>
-              <td class="tfoot-label">GST</td>
-              <td>{{ total.GST }}</td>
-            </tr>
-            <tr>
-              <td class="orderedItem.actions"></td>
-              <td></td>
-              <td></td>
-              <td class="tfoot-label">Total</td>
-              <td>{{ total.afterGST }}</td>
-            </tr>
-            </tfoot>
-          </table>-->
+            <hr style="position: absolute; top: 48mm; left: 0;"/>
 
-      </article>
-    </page>
-  {{/with}}
+            <div id="customer_name" class="field">
+                <div class="key">{{_ 'Customer Name'}}</div>
+                <div class="value">{{ customer.name }}</div>
+            </div>
+
+            <div id="customer_company" class="field">
+                <div class="key">{{_ 'Company'}}</div>
+                <div class="value">{{ customer.company }}</div>
+            </div>
+
+            <div id="customer_taxNumber" class="field">
+                <div class="key">{{_ 'Tax Number'}}</div>
+                <div class="value">{{ customer.taxNumber }}</div>
+            </div>
+
+            <div id="customer_address" class="field">
+                <div class="key">{{_ 'Address'}}</div>
+                <div class="value">{{ customer.address }}</div>
+            </div>
+
+            <div id="paymentMethod" class="field">
+                <div class="key">{{_ 'Payment Method'}}</div>
+                <div class="value">{{ paymentMethod }}</div>
+            </div>
+
+            <table id="lineItems_table" class="invoice-line-items">
+                <thead>
+                    <tr>
+                        <th id="lineItems_number" style="height: 8mm">STT</th>
+                        <th id="lineItems_name" >Ten hang hoa, dich vu</th>
+                        <th id="lineItems_unit" >Don vi tinh</th>
+                        <th id="lineItems_quantity">So luong</th>
+                        <th id="lineItems_unitPrice">Don gia</th>
+                        <th id="lineItems_totalPrice">Thanh tien</th>
+                    </tr>
+                    <tr>
+                        <td style="height: 5mm">1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6=4x5</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orderedItems}}
+                    <tr>
+                        <td style="height: 7mm"></td>
+                        <td>{{ this.name }}</td>
+                        <td>{{ this.unit }}</td>
+                        <td>{{ this.unitPrice }}</td>
+                        <td>{{ this.quantity }}</td>
+                        <td>{{ this.totalPrice }}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+            <!--
+            <div class="field">
+                <div class="key">{{_ 'Invoice number' }}</div>
+                <div class="value">{{ number }}</div>
+            </div>
+            <div class="field">
+                <label>{{_ 'Invoice Date'}}</label>
+                <div class="value">15/10/2015</div>
+            </div>
+            -->
+
+            <hr style="position: absolute; top: 192mm; left: 0;"/>
+
+            <div id="total_beforeGST" class="field">
+                <div class="key">{{_ 'Subtotal'}}</div>
+                <div class="value">{{ total.beforeGST }}</div>
+            </div>
+
+            <hr style="position: absolute; top: 200mm; left: 0;"/>
+
+            <div id="total_GST" class="field">
+                <div class="key">{{_ 'GST'}}</div>
+                <div class="value">{{ total.GST }}</div>
+            </div>
+
+            <hr style="position: absolute; top: 208mm; left: 0;"/>
+
+            <div id="total_afterGST" class="field">
+                <div class="key">{{_ 'Total'}}</div>
+                <div class="value">{{ total.afterGST }}</div>
+            </div>
+
+            <hr style="position: absolute; top: 216mm; left: 0;"/>
+
+            <div class="field" style="position: absolute; top: 217mm; left: 0;">
+                So tien viet bang chu:
+            </div>
+
+            <hr style="position: absolute; top: 232mm; left: 0;"/>
+
+        </article>
+    </div>
+    {{/with}}
 </template>

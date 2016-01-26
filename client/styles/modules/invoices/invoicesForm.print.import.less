@@ -30,54 +30,25 @@ article.invoices-form-print {
   }
 
   table.invoice-line-items {
+    position: absolute;
+    border-top: 1px solid #CCC;
+    left: 0;
+    width: auto;
+
+    th, td {
+      border: 1px solid #CCC;
+      font-size: 10pt;
+      font-weight: normal;
+    }
+
     td {
-      text-align: right;
-      line-height: @base-line-big;
-      border-bottom: none;
-
-      > input {
-        text-align: right;
-      }
-    }
-
-    td[class$='name'] {
-      text-align: left;
-      width: 350px;
-
-      > input {
-        text-align: left;
-      }
-    }
-
-    td[class$='actions'] {
-      width: 40px;
-      text-align: right;
-    }
-
-    td[class$='add-line-item'] {
-      padding-top: 40px;
       text-align: left;
     }
 
-    > tfoot td {
-      color: @color-body;
-      text-align: right;
-      font-weight: 600;
-    }
-
-    > tfoot td.tfoot-label {
-      padding-right: 20px;
-      color: grey;
-    }
-
-    a.autoform-remove-item,
-    a.autoform-add-item {
-      font-size: 17px;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-    a.autoform-remove-item {
-      color: @color-error;
+    > thead {
+      th, td {
+        text-align: center;
+      }
     }
   }
 }
