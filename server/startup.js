@@ -15,7 +15,7 @@
         },
         { username:'user',
           email:'user@test.com',
-          password:'useruser',
+          password:'password',
           roles:['user'],
           status:'enabled',
           profile:{

@@ -2,7 +2,7 @@
 
   <section id="TopBar">
     <nav>
-      <a href="{{pathFor route='invoices' }}" class="cancel">Cancel</a>
+      <a href="{{pathFor route='invoices' }}" class="cancel">{{_ 'Cancel' }}</a>
     </nav>
   </section>
 
@@ -15,7 +15,10 @@
         <div class="value">
           {{> afFieldInput name='ownedByCompanyId'}}
           {{#if afFieldIsInvalid name='ownedByCompanyId'}}
-          <span class="error">{{{afFieldMessage name='ownedByCompanyId'}}}</span>
+          <span class="error">
+            <i class="fa fa-exclamation-triangle"></i>
+            <span class="error-text">{{{afFieldMessage name='ownedByCompanyId'}}}</span>
+          </span>
           {{/if}}
         </div>
       </div>
@@ -24,7 +27,10 @@
         <div class="value">
           {{> afFieldInput name='printTemplateId'}}
           {{#if afFieldIsInvalid name='printTemplateId'}}
-          <span class="error">{{{afFieldMessage name='printTemplateId'}}}</span>
+          <span class="error">
+            <i class="fa fa-exclamation-triangle"></i>
+            <span class="error-text">{{{afFieldMessage name='printTemplateId'}}}</span>
+          </span>
           {{/if}}
         </div>
       </div>
@@ -33,7 +39,10 @@
         <div class="value">
           {{> afFieldInput name='invoiceNumber'}}
           {{#if afFieldIsInvalid name='invoiceNumber'}}
-          <span class="error">{{{afFieldMessage name='invoiceNumber'}}}</span>
+            <span class="error">
+              <i class="fa fa-exclamation-triangle"></i>
+              <span class="error-text">{{{afFieldMessage name='invoiceNumber'}}}</span>
+            </span>
           {{/if}}
         </div>
       </div>
@@ -42,7 +51,10 @@
         <div class="value">
           {{> afFieldInput name='dateIssued'}}
           {{#if afFieldIsInvalid name='dateIssued'}}
-          <span class="error">{{{afFieldMessage name='dateIssued'}}}</span>
+            <span class="error">
+              <i class="fa fa-exclamation-triangle"></i>
+              <span class="error-text">{{{afFieldMessage name='dateIssued'}}}</span>
+            </span>
           {{/if}}
         </div>
       </div>
@@ -54,7 +66,10 @@
         <div class="value">
           {{> afFieldInput name='customer.name'}}
           {{#if afFieldIsInvalid name='customer.name'}}
-          <span class="error">{{{afFieldMessage name='customer.name'}}}</span>
+            <span class="error">
+              <i class="fa fa-exclamation-triangle"></i>
+              <span class="error-text">{{{afFieldMessage name='customer.name'}}}</span>
+            </span>
           {{/if}}
         </div>
       </div>
@@ -63,25 +78,46 @@
         <div class="value">
           {{> afFieldInput name='customer.company'}}
           {{#if afFieldIsInvalid name='customer.company'}}
-          <span class="error">{{{afFieldMessage name='customer.company'}}}</span>
+            <span class="error">
+              <i class="fa fa-exclamation-triangle"></i>
+              <span class="error-text">{{{afFieldMessage name='customer.company'}}}</span>
+            </span>
           {{/if}}
         </div>
       </div>
       <div class="field {{#if afFieldIsInvalid name='customer.taxNumber'}}has-error{{/if}}">
-        <label>{{_ 'Customer Tax No.'}}</label>
+        <label>{{_ 'Tax Number'}}</label>
         <div class="value">
           {{> afFieldInput name='customer.taxNumber'}}
           {{#if afFieldIsInvalid name='customer.taxNumber'}}
-          <span class="error">{{{afFieldMessage name='customer.taxNumber'}}}</span>
+          <span class="error">
+            <i class="fa fa-exclamation-triangle"></i>
+            <span class="error-text">{{{afFieldMessage name='customer.taxNumber'}}}</span>
+          </span>
           {{/if}}
         </div>
       </div>
       <div class="field {{#if afFieldIsInvalid name='customer.address'}}has-error{{/if}}">
-        <label>{{_ 'Customer Address'}}</label>
+        <label>{{_ 'Address'}}</label>
         <div class="value">
           {{> afFieldInput name='customer.address'}}
           {{#if afFieldIsInvalid name='customer.address'}}
-          <span class="error">{{{afFieldMessage name='customer.address'}}}</span>
+          <span class="error">
+            <i class="fa fa-exclamation-triangle"></i>
+            <span class="error-text">{{{afFieldMessage name='customer.address'}}}</span>
+          </span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field {{#if afFieldIsInvalid name='paymentMethod'}}has-error{{/if}}">
+        <label>{{_ 'Payment Method'}}</label>
+        <div class="value">
+          {{> afFieldInput name='paymentMethod'}}
+          {{#if afFieldIsInvalid name='paymentMethod'}}
+          <span class="error">
+            <i class="fa fa-exclamation-triangle"></i>
+            <span class="error-text">{{{afFieldMessage name='paymentMethod'}}}</span>
+          </span>
           {{/if}}
         </div>
       </div>
@@ -91,11 +127,12 @@
       <table class="invoice-line-items">
         <thead>
           <tr>
-            <td class="orderedItem.actions"></td>
             <td class="orderedItem.name">{{_ 'Product Name'}}</td>
-            <td>{{_ 'Unit Price'}}</td>
+            <td>{{_ 'Unit'}}</td>
             <td>{{_ 'Quantity'}}</td>
-            <td>{{_ 'Price'}}</td>
+            <td>{{_ 'Unit Price'}}</td>
+            <td>{{_ 'Total Price'}}</td>
+            <td class="orderedItem.actions"></td>
           </tr>
         </thead>
 
@@ -103,25 +140,25 @@
 
         <tfoot>
           <tr>
-            <td class="orderedItem.actions"></td>
             <td></td>
             <td></td>
-            <td class="tfoot-label">Subtotal</td>
+            <td class="tfoot-label" colspan="2">Subtotal</td>
             <td>{{> afFieldInput name='total.beforeGST' class="invoice-subtotal" }}</td>
+            <td class="orderedItem.actions"></td>
           </tr>
           <tr>
-            <td class="orderedItem.actions"></td>
             <td></td>
             <td></td>
-            <td class="tfoot-label">GST</td>
+            <td class="tfoot-label" colspan="2">GST</td>
             <td>{{> afFieldInput name='total.GST' class="invoice-GST" }}</td>
+            <td class="orderedItem.actions"></td>
           </tr>
           <tr>
-            <td class="orderedItem.actions"></td>
             <td></td>
             <td></td>
-            <td class="tfoot-label">Total</td>
+            <td class="tfoot-label" colspan="2">Total</td>
             <td>{{> afFieldInput name='total.afterGST' class="invoice-total-after-GST" }}</td>
+            <td class="orderedItem.actions"></td>
           </tr>
         </tfoot>
       </table>

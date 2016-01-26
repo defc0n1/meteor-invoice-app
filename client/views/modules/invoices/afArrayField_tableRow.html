@@ -1,6 +1,18 @@
 <template name="afArrayField_tableRow">
   {{#afEachArrayItem name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
   <tr class="line-item">
+    {{#each afFieldNames name=this.name}}
+      <td class="{{ name }} value {{#if afFieldIsInvalid name=name}}has-error{{/if}}">
+        {{> afFieldInput name=name}}
+        {{#if afFieldIsInvalid name=name}}
+          <span class="error">
+            <i class="fa fa-exclamation-triangle"></i>
+            <span class="error-text">{{{afFieldMessage name=name}}}</span>
+          </span>
+        {{/if}}
+      </td>
+    {{/each}}
+
     {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
     <td class="orderedItem.{{ index }}.actions">
       <a class="autoform-remove-item">
@@ -8,19 +20,9 @@
       </a>
     </td>
     {{/if}}
-
-    {{#each afFieldNames name=this.name}}
-      <td class="{{ name }}">
-        {{> afFieldInput name=name}}
-        {{#if afFieldIsInvalid name=name}}
-          <span class="help-block">{{{afFieldMessage name=name}}}</span>
-        {{/if}}
-      </td>
-    {{/each}}
   </tr>
   {{/afEachArrayItem}}
   <tr>
-    <td></td>
     <td class="add-line-item">
       {{#if afArrayFieldHasLessThanMaximum name=this.atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
         <a class="autoform-add-item" data-autoform-field="{{this.atts.name}}"

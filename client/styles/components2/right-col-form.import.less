@@ -16,6 +16,13 @@ article.right-col-form {
       }
     }
 
+    .field.has-error, td.has-error {
+      input, textarea {
+        background-color: rgba(208, 107, 107, 0.1);
+        border: 1px solid #D6A7B4
+      }
+    }
+
     label {
       float: left;
       width: 200px;
@@ -24,7 +31,6 @@ article.right-col-form {
       color: grey;
       font-size: 90%;
       line-height: 1.75;
-      margin-left: 40px;
     }
 
     div.value {
@@ -35,6 +41,37 @@ article.right-col-form {
         display: block;
         border: 1px solid white;
         padding: @padding-input;
+      }
+    }
+
+    div.value, td.value {
+      position: relative;
+
+      > span.error {
+        display: block;
+        padding: 0;
+        border: none;
+        position: absolute;
+        margin: 0;
+        right: 10px;
+        top: 5px;
+        text-align: right;
+        line-height: 1.5;
+
+        > span.error-text {
+          display: none;
+        }
+
+        &:hover {
+          width: 50%;
+
+          span.error-text {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 15px;
+          }
+        }
       }
     }
   }

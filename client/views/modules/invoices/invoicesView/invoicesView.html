@@ -3,8 +3,8 @@
 
     <section id="TopBar">
       <nav>
-        <a href="{{pathFor route='invoices.edit' }}">Update</a>
-        <a href="{{pathFor route='invoices.print' }}" class="right">Print</a>
+        <a href="{{pathFor route='invoices.edit' }}">{{_ 'Update' }}</a>
+        <a href="{{pathFor route='invoices.print' }}" class="right">{{_ 'Print' }}</a>
       </nav>
     </section>
 
@@ -38,12 +38,16 @@
           <div class="value"><span>{{ customer.company }}</span></div>
         </div>
         <div class="field">
-          <label>{{_ 'Customer Tax No.'}}</label>
+          <label>{{_ 'Tax Number'}}</label>
           <div class="value"><span>{{ customer.taxNumber }}</span></div>
         </div>
         <div class="field">
-          <label>{{_ 'Customer Address'}}</label>
+          <label>{{_ 'Address'}}</label>
           <div class="value"><span>{{ customer.address }}</span></div>
+        </div>
+        <div class="field">
+          <label>{{_ 'Payment Method'}}</label>
+          <div class="value"><span>{{ paymentMethod }}</span></div>
         </div>
       </fieldset>
 
@@ -52,46 +56,48 @@
 
           <thead>
           <tr>
-            <td class="orderedItem.actions"></td>
             <td class="orderedItem.name">{{_ 'Product Name'}}</td>
-            <td>{{_ 'Unit Price'}}</td>
+            <td>{{_ 'Unit'}}</td>
             <td>{{_ 'Quantity'}}</td>
-            <td>{{_ 'Price'}}</td>
+            <td class="orderedItem.price">{{_ 'Unit Price'}}</td>
+            <td class="orderedItem.price">{{_ 'Total Price'}}</td>
+            <td class="orderedItem.actions"></td>
           </tr>
           </thead>
 
           {{#each orderedItems}}
           <tr>
-            <td class="orderedItem.actions"></td>
             <td class="orderedItems.name"><span>{{ this.name }}</span></td>
-            <td><span>{{ this.unitPrice }}</span></td>
+            <td><span>{{ this.unit }}</span></td>
             <td><span>{{ this.quantity }}</span></td>
+            <td><span>{{ this.unitPrice }}</span></td>
             <td><span>{{ this.totalPrice }}</span></td>
+            <td class="orderedItem.actions"></td>
           </tr>
           {{/each}}
 
           <tfoot>
-          <tr>
-            <td class="orderedItem.actions"></td>
-            <td></td>
-            <td></td>
-            <td class="tfoot-label">Subtotal</td>
-            <td><span>{{ total.beforeGST }}</span></td>
-          </tr>
-          <tr>
-            <td class="orderedItem.actions"></td>
-            <td></td>
-            <td></td>
-            <td class="tfoot-label">GST</td>
-            <td><span>{{ total.GST }}</span></td>
-          </tr>
-          <tr>
-            <td class="orderedItem.actions"></td>
-            <td></td>
-            <td></td>
-            <td class="tfoot-label">Total</td>
-            <td><span>{{ total.afterGST }}</span></td>
-          </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="tfoot-label" colspan="2">{{_ "Subtotal" }}</td>
+              <td><span>{{ total.beforeGST }}</span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="tfoot-label" colspan="2">{{_ "VAT" }}</td>
+              <td><span>{{ total.GST }}</span></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td class="tfoot-label" colspan="2">{{_ "Total Payment" }}</td>
+              <td><span>{{ total.afterGST }}</span></td>
+              <td></td>
+            </tr>
           </tfoot>
         </table>
 
