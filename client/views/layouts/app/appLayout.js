@@ -31,3 +31,11 @@ Template.appLayout.events({
         });
     }
 });
+
+Template.appLayout.onRendered(function() {
+    var windowHeight = $(window).height(),
+        searchBarHeight = $('#SearchBar').height() + parseInt($('#SearchBar').css('border-bottom-width')),
+        theListHeight = windowHeight - searchBarHeight;
+
+    $('#TheList').height(theListHeight);
+});
